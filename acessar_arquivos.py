@@ -30,9 +30,21 @@
 # "b" - Binary - Binary mode (e.g. images).
 # "b" - Binario - Modo binario (e.g. imagens).
 
-# file = "arquivo.txt" 
-# arquivo = open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+#abertura normal
+file = "arquivo.txt" 
+arquivo = open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+arquivo.close()
 
-# com escopo anonimo
-# with open(file, mode="r") as arquivo:
-#   arquivo.close()
+#com escopo anonimo
+with open(file, mode="r") as arquivo:
+  print(arquivo.read(2)) # retorna a cadeia de caracteres ate a posicao especificada.
+  print(arquivo.readline()) # retorna as linha conforme cada invocacao da funcao.
+  print(arquivo.readlines()) # retorna uma lista das linhas do arquivo.
+  arquivo.close() # instrucao necessaria para fechar o arquivo.
+
+with open(file, mode="a") as arquivo:
+  arquivo.write("\nabacate") #escreve no arquivo diretamente com string.
+  arquivo.writelines(["\norelha","\ncopo"]) # escreve atraves de lista.
+  print(arquivo.writable()) # retorna True se o arquivo pode ser escrito ou False se nao pode.
+  print(arquivo.closed) #retorna True se o arquivo esta fechado ou False se esta aberto.
+  arquivo.close()
