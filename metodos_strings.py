@@ -1,4 +1,4 @@
-#Metodos de string
+#Metodos de string (44 metodos)
 
 # capitalize() Converts the first character to upper case.
 # capitalize() Converte o primeiro caractere para maiusculo.
@@ -98,13 +98,36 @@ print("²".isdigit()) # True
 print("bolinha".isidentifier()) # True
 
 # islower()	Returns True if all characters in the string are lower case.
+# islower() Retorna True se todos os caracteres da string estao em minusculo.
+print("Casa".islower()) # False
 
-# isnumeric()	Returns True if all characters in the string are numeric
-# isprintable()	Returns True if all characters in the string are printable
-# isspace()	Returns True if all characters in the string are whitespaces
-# istitle() 	Returns True if the string follows the rules of a title
-# isupper()	Returns True if all characters in the string are upper case
-# join()	Joins the elements of an iterable to the end of the string
+# isnumeric()	Returns True if all characters in the string are numeric.
+# isnumeric() Retona True se todos os caracteres da string sao numericos.
+print("426".isnumeric()) # True
+print("426=426".isnumeric()) # False
+
+# isprintable()	Returns True if all characters in the string are printable.
+# isprintable() Retorna True se todos os caracteres da string sao imprimiveis.
+print("South American".isprintable()) #True
+print("\n".isprintable()) #False
+
+# isspace()	Returns True if all characters in the string are whitespaces.
+# isspace() Retorna True se todos os caracteres na string sao espacos.
+print(" ".isspace()) # True
+
+# istitle() Returns True if the string follows the rules of a title.
+# istitle() Retorna True se a string seguir as regras de um titulo.
+print("Titulo".istitle()) # True
+print("titulo".istitle()) # False
+
+# isupper()	Returns True if all characters in the string are upper case.
+# isupper() Retorna True se todos os caracteres na string sao maiusculos.
+print("MAIUSCULO".isupper()) # True
+
+# join() Joins the elements of an iterable to the end of the string.
+# join() Uni os elementos de um iteravel para o fim da string.
+print("String: ".join(["DC", "Comics"]))
+
 # ljust()	Returns a left justified version of the string
 # lower()	Converts a string into lower case
 # lstrip()	Returns a left trim version of the string
