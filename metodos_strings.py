@@ -128,7 +128,10 @@ print("MAIUSCULO".isupper()) # True
 # join() Uni os elementos de um iteravel para o fim da string.
 print("String: ".join(["DC", "Comics"]))
 
-# ljust()	Returns a left justified version of the string
+# ljust()	Returns a left justified version of the string.
+# ljust() Retorna a string alinhada na esquerda com o caractere especificado.
+print("quarenta".ljust(10,"="))
+
 # lower()	Converts a string into lower case
 # lstrip()	Returns a left trim version of the string
 # maketrans()	Returns a translation table to be used in translations
