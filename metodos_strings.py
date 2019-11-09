@@ -126,18 +126,42 @@ print("MAIUSCULO".isupper()) # True
 
 # join() Joins the elements of an iterable to the end of the string.
 # join() Uni os elementos de um iteravel para o fim da string.
-print("String: ".join(["DC", "Comics"]))
+print("String: ".join(["DC", "Comics"])) # DCString: Comics
 
 # ljust()	Returns a left justified version of the string.
 # ljust() Retorna a string alinhada na esquerda com o caractere especificado.
-print("quarenta".ljust(10,"="))
+print("quarenta".ljust(10,"=")) # quarenta==
 
-# lower()	Converts a string into lower case
-# lstrip()	Returns a left trim version of the string
-# maketrans()	Returns a translation table to be used in translations
-# partition()	Returns a tuple where the string is parted into three parts
-# replace()	Returns a string where a specified value is replaced with a specified value
-# rfind()	Searches the string for a specified value and returns the last position of where it was found
+# lower()	Converts a string into lower case.
+# lower() Converte uma string para minusculo.
+print("SuperMonte".lower()) # supermonte
+
+# lstrip() Returns a left trim version of the string.
+# lstrip() Retorna a string sem espacos no lado esquerdo.
+palavra = "   jacare"
+print(palavra.lstrip()) # jacare
+
+# maketrans()	Returns a translation table to be used in translations.
+# maketrans() Retorna uma tabela de traducao para ser usada em traducoes com o metodo translate().
+# translate()	Returns a translated string.
+# translate() Retorna um string traduzida. 
+string_base = ""
+traducao = string_base.maketrans({"a":"1","b":"2","c":"3","d":"4"})
+print(traducao) # {97: '1', 98: '2', 99: '3', 100: '4'}
+palavra = "ab+ab=bd"
+print(palavra.translate(traducao)) # 12+12=24
+
+
+# partition()	Returns a tuple where the string is parted into three parts.
+# partition() Retorna uma tupla que contem tres partes da string.
+print("pre-venda".partition("-")) # ('pre', '-', 'venda')
+
+# replace()	Returns a string where a specified value is replaced with a specified value.
+# replace() Retorna uma string que teve um valor especifico substituido por outro valor especifico.
+palavra = "chumbo"
+print(palavra.replace("mbo","va")) # chuva
+
+# rfind()	Searches the string for a specified value and returns the last position of where it was found.
 # rindex()	Searches the string for a specified value and returns the last position of where it was found
 # rjust()	Returns a right justified version of the string
 # rpartition()	Returns a tuple where the string is parted into three parts
@@ -149,6 +173,5 @@ print("quarenta".ljust(10,"="))
 # strip()	Returns a trimmed version of the string
 # swapcase()	Swaps cases, lower case becomes upper case and vice versa
 # title()	Converts the first character of each word to upper case
-# translate()	Returns a translated string
 # upper()	Converts a string into upper case
 # zfill()	Fills the string with a specified number of 0 values at the beginning
