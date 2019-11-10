@@ -162,6 +162,11 @@ palavra = "chumbo"
 print(palavra.replace("mbo","va")) # chuva
 
 # rfind()	Searches the string for a specified value and returns the last position of where it was found.
+# rfind() Pesquisa a string com o valor especificado e retorna o indice da primeira ocorrencia. Porém começa a pesquisa da direita.
+palavra = "hamburguer"
+print(palavra.rfind("a")) # 1
+print(palavra.rfind("u")) # 7
+
 # rindex()	Searches the string for a specified value and returns the last position of where it was found
 # rjust()	Returns a right justified version of the string
 # rpartition()	Returns a tuple where the string is parted into three parts
