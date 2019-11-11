@@ -48,3 +48,52 @@ with open(file, mode="a") as arquivo:
   print(arquivo.writable()) # retorna True se o arquivo pode ser escrito ou False se nao pode.
   print(arquivo.closed) #retorna True se o arquivo esta fechado ou False se esta aberto.
   arquivo.close()
+
+
+# close()	Closes the file.
+# close() Fecha o arquivo.
+
+# detach() Returns the separated raw stream from the buffer.
+# detach() Retorna a cadeia de caracteres crua do buffer.
+
+# fileno() Returns a number that represents the stream, from the operating system's perspective.
+# fileno() Retorna um número que representa o fluxo, da perspectiva do sistema operacional.
+
+# flush()	Flushes the internal buffer.
+# flush() Liberta o buffer interno.
+
+# isatty() Returns whether the file stream is interactive or not.
+# isatty() Retorna se o fluxo de arquivos é interativo ou não.
+
+# read() Returns the file content.
+# read() Retorna o conteudo do arquivo.
+
+# readable() Returns whether the file stream can be read or not.
+# readable() Retorna se o fluxo de arquivos pode ser lido ou não.
+
+# readline() Returns one line from the file.
+# readline() Retorna uma linha do arquivo.
+
+# readlines()	Returns a list of lines from the file.
+# readlines()	Retorna uma lista de linhas do arquivo.
+
+# seek() Change the file position.
+# seek() Mude a posição do arquivo.
+
+# seekable() Returns whether the file allows us to change the file position.
+# seekable() Retorna se o arquivo nos permite alterar a posição do arquivo.
+
+# tell() Returns the current file position.
+# tell() Retorna a posição atual do arquivo.
+
+# truncate() Resizes the file to a specified size.
+# truncate() Redimensiona o arquivo para um tamanho especificado.
+
+# writeable()	Returns whether the file can be written to or not.
+# writeable()	Retorna se o arquivo pode ser gravado ou não.
+
+# write()	Writes the specified string to the file.
+# write()	Grava a seqüência especificada para o arquivo.
+
+# writelines() Writes a list of strings to the file.
+# writelines() Grava uma lista de seqüências de caracteres no arquivo.
