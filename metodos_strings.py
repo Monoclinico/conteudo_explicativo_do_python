@@ -151,7 +151,6 @@ print(traducao) # {97: '1', 98: '2', 99: '3', 100: '4'}
 palavra = "ab+ab=bd"
 print(palavra.translate(traducao)) # 12+12=24
 
-
 # partition()	Returns a tuple where the string is parted into three parts.
 # partition() Retorna uma tupla que contem tres partes da string.
 print("pre-venda".partition("-")) # ('pre', '-', 'venda')
@@ -167,12 +166,33 @@ palavra = "hamburguer"
 print(palavra.rfind("a")) # 1
 print(palavra.rfind("u")) # 7
 
-# rindex()	Searches the string for a specified value and returns the last position of where it was found
-# rjust()	Returns a right justified version of the string
-# rpartition()	Returns a tuple where the string is parted into three parts
-# rsplit()	Splits the string at the specified separator, and returns a list
-# rstrip()	Returns a right trim version of the string
-# split()	Splits the string at the specified separator, and returns a list
+# rindex() Searches the string for a specified value and returns the last position of where it was found.
+# rindex() Pesquisa a string com o valor especificado e retorna o indice da primeira ocorrencia. Começa a pesquisa da direita.
+palavra = "hamburguer"
+print(palavra.rindex("a")) # 1
+print(palavra.rindex("u")) # 7
+
+# rjust()	Returns a right justified version of the string.
+# Retorna a string alinhada na direita com o caractere especificado.
+print("livro".rjust(10,"=")) # =====livro
+
+# rpartition() Returns a tuple where the string is parted into three parts.
+# rpartition() Retorna uma tupla que contem tres partes da string. Começa pela direita.
+print("pau-de-self".rpartition("-")) # ('pau-de', '-', 'self')
+
+# rsplit() Splits the string at the specified separator, and returns a list.
+# rsplit() Divide a string com o separador especificado, e retorna uma lista. Comeca da direita.
+print("100.000.000,00".rsplit(".",1)) # ['100.000', '000,00']
+
+# rstrip() Returns a right trim version of the string.
+# rtript() Retorna a string sem espacos no lado direito.
+palavra = "jacare   "
+print(palavra.rstrip()) # jacare
+
+# split()	Splits the string at the specified separator, and returns a list.
+# split() Divide a string com o separador especificado, e retorna uma lista.
+print("100.000.000,00".split(".",1)) # ['100', '000.000,00']
+
 # splitlines()	Splits the string at line breaks and returns a list
 # startswith()	Returns true if the string starts with the specified value
 # strip()	Returns a trimmed version of the string
