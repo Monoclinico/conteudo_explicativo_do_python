@@ -193,10 +193,33 @@ print(palavra.rstrip()) # jacare
 # split() Divide a string com o separador especificado, e retorna uma lista.
 print("100.000.000,00".split(".",1)) # ['100', '000.000,00']
 
-# splitlines()	Splits the string at line breaks and returns a list
-# startswith()	Returns true if the string starts with the specified value
-# strip()	Returns a trimmed version of the string
-# swapcase()	Swaps cases, lower case becomes upper case and vice versa
-# title()	Converts the first character of each word to upper case
-# upper()	Converts a string into upper case
-# zfill()	Fills the string with a specified number of 0 values at the beginning
+# splitlines() Splits the string at line breaks and returns a list.
+# splitlines() Separa a string nas quebras de linhas e retorna uma lista.
+paragrafo = """What time does the party start?\nThe party starts at nine thirty at night."""
+print(paragrafo.splitlines()) # ['What time does the party start?', 'The party starts at nine thirty at night.']
+print(paragrafo.splitlines(True)) # ['What time does the party start?\n', 'The party starts at nine thirty at night.']
+
+# startswith() Returns true if the string starts with the specified value.
+# startswith(prefix: Union[Text, Tuple[Text, ...]], start: Optional[int]=..., end: Optional[int]=...) Retorna True se a string comeca com o valor especificado.
+print("terremoto".startswith("te")) # True
+
+# strip()	Returns a trimmed version of the string.
+# strip(chars: Optional[str]=...) Retorna a string com os espacos de ambos os lados removidos por padrao.
+print("   espaco   ".strip()) # espaco
+
+# swapcase() Swaps cases, lower case becomes upper case and vice versa.
+# swapcase() Muda tudo que estiver em minusculo para minusculo e vice versa.
+print("AbCdE".swapcase()) #aBcDe
+
+# title()	Converts the first character of each word to upper case.
+# title() Converte o primeiro caractere de cada palavra para maiusculo.
+print("sao paulo, brasil".title()) # Sao Paulo, Brasil
+
+# upper()	Converts a string into upper case.
+# upper() Converte a string para maiusculo.
+print("maiusculo".upper()) # MAIUSCULO
+
+# zfill()	Fills the string with a specified number of 0 values at the beginning.
+# zfill() Preenche a string com um numero especifico de zeros, comecando da esquerda. 
+palavra = "1".zfill(2) 
+print(palavra) # 01
