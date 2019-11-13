@@ -38,6 +38,7 @@ print(datetime.MINYEAR)
 # metodos: timetuple() toordinal() weekday() isoweekday(), isocalendar(), isoformat() ctime() strftime()
 # atributos: year, month, day
 data = datetime.date(2019,11,13)
+data2 = datetime.date(2020,11,13)
 print(data) #2019-11-13
 print(data.day) #13
 print(data.month) #11
@@ -51,6 +52,13 @@ print(data.strftime("%B, %A %Y ")) # November, Wednesday 2019
 print(data.timetuple()) #time.struct_time(tm_year=2019, tm_mon=11, tm_mday=13, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=2, tm_yday=317, tm_isdst=-1)
 print(data.toordinal()) #737376
 
+#Operacoes
+print(data == data2) # False
+print(data > data2) # False
+print(data < data2) # True
+data3 = data2 - data
+print(data3) # 366 days, 0:00:00
+ 
 # datetime.date.today()
 # Retorna a data local atual.
 print(datetime.date.today()) # 2019-11-12
