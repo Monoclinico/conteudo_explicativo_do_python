@@ -112,11 +112,26 @@ print(datetime.date.day)
 print(data.day)
 
 #==================================================================================================
-
 # class datetime.time
 # Um horario ideal, independente de qualquer dia em particular, assumindo que todos os 
 # dias tenham exatamente 24 * 60 * 60 segundos. (Nao ha nocao de "segundos bissextos" aqui.) 
 # Atributos: hora, minuto, segundo, microssegundo e tzinfo.
+# Um objeto de hora representa uma hora do dia (local), independente de qualquer dia em particular, 
+# e sujeito a ajustes por meio de um objeto tzinfo.
+# classe datetime.time (hora = 0, minuto = 0, segundo = 0, microssegundo = 0, tzinfo = Nenhum, *, dobra = 0)
+#     Todos os argumentos são opcionais. tzinfo pode ser None ou uma instância de uma subclasse tzinfo. 
+#     Os argumentos restantes devem ser números inteiros nos seguintes intervalos:
+#         0 <= hora <24,
+#         0 <= minuto <60,
+#         0 <= segundo <60,
+#         0 <= microssegundo <1000000,
+#         dobre em [0, 1].
+#     Se um argumento fora desses intervalos for fornecido, ValueError será gerado. 
+#     Todos assumem como padrão 0, exceto tzinfo, cujo padrão é Nenhum.
+horario = datetime.time(17,18,50,0)
+print(horario) # 17:18:50
+
+#==================================================================================================
 
 # class datetime.datetime
 # Uma combinaçao de uma data e uma hora. Atributos: ano, mes, dia, hora, minuto, segundo,
