@@ -131,6 +131,18 @@ print(data.day)
 horario = datetime.time(17,18,50,0)
 print(horario) # 17:18:50
 
+# datetime.time.min
+# A primeira hora representável, hora (0, 0, 0, 0).
+print(horario.min) # 00:00:00
+
+# datetime.time.max
+# A ultima hora representavel, hora (23,59,59.999999) 
+print(horario.max) # 23:59:59.999999
+
+# A menor diferença possível entre objetos de tempo não iguais, timedelta (microssegundos = 1), 
+# embora observe que a aritmética nos objetos de tempo não é suportada.
+print(horario.resolution) #0:00:00.000001
+
 #==================================================================================================
 
 # class datetime.datetime
