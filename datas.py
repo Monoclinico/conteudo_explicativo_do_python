@@ -128,7 +128,7 @@ print(data.day)
 #         dobre em [0, 1].
 #     Se um argumento fora desses intervalos for fornecido, ValueError será gerado. 
 #     Todos assumem como padrão 0, exceto tzinfo, cujo padrão é Nenhum.
-horario = datetime.time(17,18,50,0)
+horario = datetime.time(17,18,50,60)
 print(horario) # 17:18:50
 
 # datetime.time.min
@@ -139,9 +139,26 @@ print(horario.min) # 00:00:00
 # A ultima hora representavel, hora (23,59,59.999999) 
 print(horario.max) # 23:59:59.999999
 
+# datetime.time.resolution
 # A menor diferença possível entre objetos de tempo não iguais, timedelta (microssegundos = 1), 
 # embora observe que a aritmética nos objetos de tempo não é suportada.
 print(horario.resolution) #0:00:00.000001
+
+# datetime.time.hour.
+# Mostra a hora.
+print(horario.hour) # 17
+
+# datetime.time.minute.
+# Mostra o minuto.
+print(horario.minute) # 18
+
+# datetime.time.second.
+# Mostra o segundo.
+print(horario.second) # 50
+
+# datetime.time.microsecond.
+# Mostra o microsegundo.
+print(horario.microsecond) # 60
 
 #==================================================================================================
 
