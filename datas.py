@@ -160,6 +160,19 @@ print(horario.second) # 50
 # Mostra o microsegundo.
 print(horario.microsecond) # 60
 
+# datetime.time.tzinfo
+# O objeto passou como argumento tzinfo para o construtor de tempo, ou Nenhum se nenhum foi passado.
+print(horario.tzinfo) # None
+
+#datetime.time.fold
+#Em [0, 1]. Usado para desambiguar os tempos da parede durante um intervalo repetido. 
+# (Um intervalo repetido ocorre quando os relógios são revertidos no final do horário de verão 
+# ou quando o deslocamento UTC da zona atual é diminuído por motivos políticos.) 
+# O valor 0 (1) representa o anterior (mais tarde) dos dois momentos com a mesma representação de tempo da parede.
+#Novo na versão 3.6.
+print(horario.fold) # 0
+
+
 #==================================================================================================
 
 # class datetime.datetime
