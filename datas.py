@@ -432,7 +432,50 @@ print(data_tempo.time()) # 17:11:52.001020
 # Uma classe base abstrata para objetos de informacoes de fuso horario. Eles sao usados
 # pelas classes de data e hora para fornecer uma nocao personalizavel de ajuste de horario
 # (por exemplo, para considerar o fuso horario e / ou o horario de verao).
+# tzinfo.utcoffset(dt)
+# tzinfo.dst(dt)
+# tzinfo.tzname(dt)
+# tzinfo.fromutc(dt)
 
 #==================================================================================================
 # class datetime.timezone
 # Uma classe que implementa a classe base abstrata tzinfo como um deslocamento fixo do UTC.
+
+# classe datetime.timezone (offset, name = None)
+# O argumento de deslocamento deve ser especificado como um objeto timedelta que representa a diferença 
+# entre a hora local e o UTC. Ele deve estar estritamente entre -timedelta (horas = 24) e timedelta (horas = 24), 
+# caso contrário, ValueError será gerado.
+# O argumento do nome é opcional. Se especificado, deve ser uma sequência que será usada como o valor retornado
+# pelo método datetime.tzname ().
+# Novo na versão 3.2.
+# Alterado na versão 3.7: O deslocamento do UTC não está restrito a um número inteiro de minutos.
+dataX = datetime.datetime(2019,11,20,23,25,20)
+zonaX = datetime.timezone(datetime.timedelta(hours=-1),"ZonaX")
+
+# timezone.utcoffset (dt)
+# Retorne o valor fixo especificado quando a instância do fuso horário for construída.
+# O argumento dt é ignorado. O valor de retorno é uma instância de timedelta igual à diferença entre 
+# a hora local e o UTC.
+# Alterado na versão 3.7: O deslocamento do UTC não está restrito a um número inteiro de minutos.
+print(zonaX.utcoffset(dataX)) # -1 day, 23:00:00
+
+# timezone.tzname (dt)
+# Retorne o valor fixo especificado quando a instância do fuso horário for construída.
+# Se o nome não for fornecido no construtor, o nome retornado por tzname (dt) será gerado a partir do 
+# valor do deslocamento da seguinte maneira. Se offset é timedelta (0), o nome é "UTC"; caso contrário, 
+# é uma string no formato UTC ± HH: MM, onde ± é o sinal de offset, HH e MM são dois dígitos de offset.hours 
+# e offset. minutos respectivamente.
+# Alterado na versão 3.6: o nome gerado a partir do deslocamento = timedelta (0) agora é simples 'UTC', 
+# não 'UTC + 00: 00'.
+print(zonaX.tzname(dataX)) # ZonaX
+
+# timezone.dst (dt)
+# Sempre retorna Nenhum.
+print(zonaX.dst(dataX)) # None
+
+# timezone.fromutc (dt)
+# Retorno dt + deslocamento. O argumento dt deve ser uma instância de datetime consciente, com tzinfo definido como self.
+
+# timezone.utc
+#  O fuso horário UTC, fuso horário (timedelta (0)).
+print(zonaX.utc) # UTC
