@@ -376,11 +376,63 @@ print(data_tempo.time()) # 17:11:52.001020
 # class datetime.timedelta
 # Uma duracao que expressa a diferenca entre duas instancias de data, hora ou data e hora
 # em resolucao de microssegundos.
+# datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
+# Todos os argumentos são opcionais e o padrão é 0. Os argumentos podem ser números inteiros ou flutuantes 
+# e podem ser positivos ou negativos.
+# Apenas dias, segundos e microssegundos são armazenados internamente. Os argumentos são convertidos 
+# nessas unidades:
+#          Um milissegundo é convertido em 1000 microssegundos.
+#          Um minuto é convertido em 60 segundos.
+#          Uma hora é convertida em 3600 segundos.
+#          Uma semana é convertida em 7 dias.
+#      dias, segundos e microssegundos são normalizados para que a representação seja única, com
+#          0 <= microssegundos <1000000
+#          0 <= segundos <3600 * 24 (o número de segundos em um dia)
+#          -999999999 <= dias <= 999999999
 
+# datetime.timedelta.min
+# O objeto timedelta mais negativo, timedelta (-999999999).
+
+# datetime.timedelta.max
+# O objeto timedelta mais positivo, timedelta (dias = 999999999, horas = 23, minutos = 59, segundos = 59, 
+# microssegundos = 999999).
+
+# datetime.timedelta.resolution
+# A menor diferença possível entre objetos timedelta não iguais, timedelta (microssegundos = 1).
+
+# Observe que, devido à normalização, timedelta.max> -timedelta.min. -timedelta.max não é representável 
+# como um objeto timedelta.
+
+# Operacoes:
+# t1 = t2 + t3
+# t1 = t2 - t3
+# t1 = t2 * i or t1 = i * t2
+# t1 = t2 * f or t1 = f * t2
+# f = t2 / t3
+# t1 = t2 / f or t1 = t2 / i
+# t1 = t2 // i or t1 = t2 // t3
+# t1 = t2 % t3
+# q, r = divmod(t1, t2)
+# +t1
+# -t1
+# abs(t)
+# str(t)
+# repr(t)
+	
+# datetime.timedelta.total_seconds()
+# Retorne o número total de segundos contidos na duração. 
+# Equivalente a td / timedelta (segundos = 1). 
+# Para unidades de intervalo diferentes de segundos, 
+# use o formulário de divisão diretamente (por exemplo, td / timedelta (microssegundos = 1)).
+# Observe que, por intervalos de tempo muito grandes (mais de 270 anos na maioria das plataformas), 
+# esse método perde a precisão de microssegundos.
+
+#==================================================================================================
 # class datetime.tzinfo
 # Uma classe base abstrata para objetos de informacoes de fuso horario. Eles sao usados
 # pelas classes de data e hora para fornecer uma nocao personalizavel de ajuste de horario
 # (por exemplo, para considerar o fuso horario e / ou o horario de verao).
 
+#==================================================================================================
 # class datetime.timezone
 # Uma classe que implementa a classe base abstrata tzinfo como um deslocamento fixo do UTC.
