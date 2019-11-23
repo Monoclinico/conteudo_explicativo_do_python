@@ -97,3 +97,19 @@ print(fruits)
 print(numbers)
 print(alphabets)
 print(vowels)
+
+# ================ ELLIPSIS ======================================================
+# Representa um tipo vazio.
+elip = ...
+print(type(elip)) # <class 'ellipsis'>
+print(elip) # Ellipsis
+
+
+# ================ ANNOTATIONS ==================================================
+some_number: int      # variavel com a anotacao de tipo inteiro e sem valor inicial.
+some_list: list = []  # variavel com a anotacao de tipo lista e com valor inicial.
+
+some_number = 8
+print(some_number)
+
+
