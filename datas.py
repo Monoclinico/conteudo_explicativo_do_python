@@ -119,7 +119,7 @@ print(data.day)
 # Um objeto de hora representa uma hora do dia (local), independente de qualquer dia em particular,
 # e sujeito a ajustes por meio de um objeto tzinfo.
 # classe datetime.time (hora = 0, minuto = 0, segundo = 0, microssegundo = 0, tzinfo = Nenhum, *, dobra = 0)
-# Todos os argumentos sao opcionais. tzinfo pode ser None ou uma instância de uma subclasse tzinfo.
+# Todos os argumentos sao opcionais. tzinfo pode ser None ou uma instancia de uma subclasse tzinfo.
 # Os argumentos restantes devem ser numeros inteiros nos seguintes intervalos:
 #         0 <= hora <24,
 #         0 <= minuto <60,
@@ -209,9 +209,9 @@ print(datetime.datetime.utcnow()) # Exemplo: 2019-11-22 18:51:01.638695
 
 # datetime.datetime.fromtimestamp(timestamp(segundos), tz=None)
 # Retorne a data e hora locais correspondentes ao registro de data e hora do POSIX,
-# como é retornado por time.time (). Se o argumento opcional tz for Nenhum ou não for especificado,
-# o registro de data e hora será convertido na data e hora locais da plataforma
-# e o objeto datetime retornado será ingênuo.
+# como e retornado por time.time (). Se o argumento opcional tz for Nenhum ou nao for especificado,
+# o registro de data e hora sera convertido na data e hora locais da plataforma
+# e o objeto datetime retornado sera ingenuo.
 print(datetime.datetime.fromtimestamp(86400)) # 1970-01-01 21:00:00
 
 # datetime.datetime.utcfromtimestamp(timestamp)
@@ -221,57 +221,57 @@ print(datetime.datetime.utcfromtimestamp(0)) # 1970-01-01 00:00:00
 # datetime.datetime.fromordinal(ordinal)
 # Retorne um novo objeto de data e hora cujos componentes de data sejam iguais aos do objeto de data especificado
 # e cujos componentes de hora sejam iguais aos do objeto de data especificado.
-# Se o argumento tzinfo for fornecido, seu valor será usado para configurar o atributo tzinfo do resultado,
-# caso contrário, o atributo tzinfo do argumento time será usado.
+# Se o argumento tzinfo for fornecido, seu valor sera usado para configurar o atributo tzinfo do resultado,
+# caso contrario, o atributo tzinfo do argumento time sera usado.
 # Para qualquer objeto datetime d, d == datetime.combine (d.date (), d.time (), d.tzinfo).
-# Se date for um objeto datetime, seus componentes de tempo e atributos tzinfo serão ignorados.
+# Se date for um objeto datetime, seus componentes de tempo e atributos tzinfo serao ignorados.
 print(datetime.datetime.fromordinal(365)) # 0001-12-31 00:00:00
 
 # datetime.datetime.combine(date, time, tzinfo=self.tzinfo)
 # Retorne um novo objeto de data e hora cujos componentes de data sejam iguais aos do objeto
 # de data especificado e cujos componentes de hora sejam iguais aos do objeto de data especificado.
-# Se o argumento tzinfo for fornecido, seu valor será usado para configurar o atributo tzinfo do resultado,
-# caso contrário, o atributo tzinfo do argumento time será usado.
+# Se o argumento tzinfo for fornecido, seu valor sera usado para configurar o atributo tzinfo do resultado,
+# caso contrario, o atributo tzinfo do argumento time sera usado.
 # Para qualquer objeto datetime d, d == datetime.combine (d.date (), d.time (), d.tzinfo).
-# Se date for um objeto datetime, seus componentes de tempo e atributos tzinfo serão ignorados.
-# Alterado na versão 3.6: adicionado o argumento tzinfo.
+# Se date for um objeto datetime, seus componentes de tempo e atributos tzinfo serao ignorados.
+# Alterado na versao 3.6: adicionado o argumento tzinfo.
 print(datetime.datetime.combine(datetime.date(2010,12,3),datetime.time(12,30,0))) # 2010-12-03 12:30:00
 
 # datetime.datetime.fromisoformat(date_string)
 # Retorne um datetime correspondente a um date_string em um dos formatos emitidos por date.isoformat ()
 # e datetime.isoformat ().
-# Especificamente, esta função suporta seqüências de caracteres no formato:
+# Especificamente, esta funçao suporta seqüencias de caracteres no formato:
 # AAAA-MM-DD [* HH [: MM [: SS [.fff [fff]]]] [+ HH: MM [: SS [.ffffff]]]]
-# onde * pode corresponder a qualquer caractere único.
+# onde * pode corresponder a qualquer caractere unico.
 print(datetime.datetime.fromisoformat("2019-11-22 17:14:00")) # 2019-11-22 17:14:00
 
 # datetime.datetime.fromisocalendar(year, week, day)
-# Retorne uma data e hora correspondentes à data do calendário ISO especificada por ano, semana e dia.
-# Os componentes não datados da data e hora são preenchidos com seus valores padrão normais.
-# Este é o inverso da função datetime.isocalendar ().
-# Novo na versão 3.8.
+# Retorne uma data e hora correspondentes a data do calendario ISO especificada por ano, semana e dia.
+# Os componentes nao datados da data e hora sao preenchidos com seus valores padrao normais.
+# Este e o inverso da funçao datetime.isocalendar ().
+# Novo na versao 3.8.
 
 # datetime.datetime.strptime(date_string, format)
 # Retorne um datetime correspondente a date_string, analisado de acordo com o formato.
-# Isso é equivalente a:
+# Isso e equivalente a:
 # datetime (* (time.strptime (date_string, formato) [0: 6]))
-# O ValueError é gerado se o date_string e o formato não puderem ser analisados por time.strptime ()
-# ou se ele retornar um valor que não seja uma tupla de tempo.
-# Para obter uma lista completa das diretivas de formatação, consulte Comportamento strftime () e strptime ().
+# O ValueError e gerado se o date_string e o formato nao puderem ser analisados por time.strptime ()
+# ou se ele retornar um valor que nao seja uma tupla de tempo.
+# Para obter uma lista completa das diretivas de formataçao, consulte Comportamento strftime () e strptime ().
 datetime_str = '09/19/19 13:55:26'
 datetime_object = datetime.datetime.strptime(datetime_str, '%m/%d/%y %H:%M:%S')
 print(datetime_object)  # 2019-09-19 13:55:26
 
 # datetime.datetime.min
-# O mais antigo datetime representável, datetime (MINYEAR, 1, 1, tzinfo = None).
+# O mais antigo datetime representavel, datetime (MINYEAR, 1, 1, tzinfo = None).
 print(datetime.datetime.min) # 0001-01-01 00:00:00
 
 # datetime.datetime.max
-# O mais recente datetime representável, datetime (MAXYEAR, 12, 31, 23, 59, 59, 999999, tzinfo = Nenhum).
+# O mais recente datetime representavel, datetime (MAXYEAR, 12, 31, 23, 59, 59, 999999, tzinfo = Nenhum).
 print(datetime.datetime.max) # 9999-12-31 23:59:59.999999
 
 # datetime.datetime.resolution
-# A menor diferença possível entre objetos de data e hora diferentes, timedelta (microssegundos = 1).
+# A menor diferença possivel entre objetos de data e hora diferentes, timedelta (microssegundos = 1).
 print(datetime.datetime.resolution)
 
 data_tempo = datetime.datetime(2019,11,22,17,11,52,1020)
@@ -284,7 +284,7 @@ print(data_tempo.year) # 2019
 print(data_tempo.month) # 11
 
 # datetime.datetime.day
-# Entre 1 e o número de dias no mês especificado do ano especificado.
+# Entre 1 e o numero de dias no mes especificado do ano especificado.
 print(data_tempo.day) # 22
 
 # datetime.datetime.hour
@@ -309,11 +309,11 @@ print(data_tempo.tzinfo) # None
 
 # datetime.fold
 # Em [0, 1]. Usado para desambiguar os tempos da parede durante um intervalo repetido.
-# (Um intervalo repetido ocorre quando os relógios são revertidos no final do horário
-# de verão ou quando o deslocamento UTC da zona atual é diminuído por motivos políticos.)
+# (Um intervalo repetido ocorre quando os relogios sao revertidos no final do horario
+# de verao ou quando o deslocamento UTC da zona atual e diminuido por motivos politicos.)
 # O valor 0 (1) representa o anterior (mais tarde) dos dois momentos com a
-# mesma representação de tempo da parede.
-# Novo na versão 3.6.
+# mesma representaçao de tempo da parede.
+# Novo na versao 3.6.
 
 # Operacoes:
 # datetime2 = datetime1 + timedelta
@@ -331,15 +331,15 @@ print(data_tempo.time()) # 17:11:52.001020
 
 # datetime.timetz()
 # Retorne o objeto de tempo com os mesmos atributos de hora, minuto, segundo, microssegundo, dobra e tzinfo.
-# Veja também método time ().
+# Veja tambem metodo time ().
 
 # datetime.replace(year=self.year, month=self.month, day=self.day, hour=self.hour,
 # minute=self.minute, second=self.second, microsecond=self.microsecond, tzinfo=self.tzinfo, * fold=0)
 # Retorne um datetime com os mesmos atributos, exceto para aqueles atributos que recebem novos valores,
 # independentemente dos argumentos da palavra-chave especificados.
-# Observe que tzinfo = None pode ser especificado para criar um data / hora ingênuo
-# a partir de um data / hora consciente, sem conversão de dados de data e hora.
-# Novo na versão 3.6: adicionado o argumento de dobra.
+# Observe que tzinfo = None pode ser especificado para criar um data / hora ingenuo
+# a partir de um data / hora consciente, sem conversao de dados de data e hora.
+# Novo na versao 3.6: adicionado o argumento de dobra.
 
 
 # datetime.astimezone(tz=None)
@@ -377,17 +377,17 @@ print(data_tempo.time()) # 17:11:52.001020
 # Uma duracao que expressa a diferenca entre duas instancias de data, hora ou data e hora
 # em resolucao de microssegundos.
 # datetime.timedelta(days=0, seconds=0, microseconds=0, milliseconds=0, minutes=0, hours=0, weeks=0)
-# Todos os argumentos são opcionais e o padrão é 0. Os argumentos podem ser números inteiros ou flutuantes 
+# Todos os argumentos sao opcionais e o padrao e 0. Os argumentos podem ser numeros inteiros ou flutuantes 
 # e podem ser positivos ou negativos.
-# Apenas dias, segundos e microssegundos são armazenados internamente. Os argumentos são convertidos 
+# Apenas dias, segundos e microssegundos sao armazenados internamente. Os argumentos sao convertidos 
 # nessas unidades:
-#          Um milissegundo é convertido em 1000 microssegundos.
-#          Um minuto é convertido em 60 segundos.
-#          Uma hora é convertida em 3600 segundos.
-#          Uma semana é convertida em 7 dias.
-#      dias, segundos e microssegundos são normalizados para que a representação seja única, com
+#          Um milissegundo e convertido em 1000 microssegundos.
+#          Um minuto e convertido em 60 segundos.
+#          Uma hora e convertida em 3600 segundos.
+#          Uma semana e convertida em 7 dias.
+#      dias, segundos e microssegundos sao normalizados para que a representaçao seja unica, com
 #          0 <= microssegundos <1000000
-#          0 <= segundos <3600 * 24 (o número de segundos em um dia)
+#          0 <= segundos <3600 * 24 (o numero de segundos em um dia)
 #          -999999999 <= dias <= 999999999
 
 # datetime.timedelta.min
@@ -398,9 +398,9 @@ print(data_tempo.time()) # 17:11:52.001020
 # microssegundos = 999999).
 
 # datetime.timedelta.resolution
-# A menor diferença possível entre objetos timedelta não iguais, timedelta (microssegundos = 1).
+# A menor diferença possivel entre objetos timedelta nao iguais, timedelta (microssegundos = 1).
 
-# Observe que, devido à normalização, timedelta.max> -timedelta.min. -timedelta.max não é representável 
+# Observe que, devido a normalizaçao, timedelta.max> -timedelta.min. -timedelta.max nao e representavel 
 # como um objeto timedelta.
 
 # Operacoes:
@@ -420,12 +420,12 @@ print(data_tempo.time()) # 17:11:52.001020
 # repr(t)
 	
 # datetime.timedelta.total_seconds()
-# Retorne o número total de segundos contidos na duração. 
+# Retorne o numero total de segundos contidos na duraçao. 
 # Equivalente a td / timedelta (segundos = 1). 
 # Para unidades de intervalo diferentes de segundos, 
-# use o formulário de divisão diretamente (por exemplo, td / timedelta (microssegundos = 1)).
+# use o formulario de divisao diretamente (por exemplo, td / timedelta (microssegundos = 1)).
 # Observe que, por intervalos de tempo muito grandes (mais de 270 anos na maioria das plataformas), 
-# esse método perde a precisão de microssegundos.
+# esse metodo perde a precisao de microssegundos.
 
 #==================================================================================================
 # class datetime.tzinfo
@@ -444,29 +444,29 @@ print(data_tempo.time()) # 17:11:52.001020
 # classe datetime.timezone (offset, name = None)
 # O argumento de deslocamento deve ser especificado como um objeto timedelta que representa a diferença 
 # entre a hora local e o UTC. Ele deve estar estritamente entre -timedelta (horas = 24) e timedelta (horas = 24), 
-# caso contrário, ValueError será gerado.
-# O argumento do nome é opcional. Se especificado, deve ser uma sequência que será usada como o valor retornado
-# pelo método datetime.tzname ().
-# Novo na versão 3.2.
-# Alterado na versão 3.7: O deslocamento do UTC não está restrito a um número inteiro de minutos.
+# caso contrario, ValueError sera gerado.
+# O argumento do nome e opcional. Se especificado, deve ser uma sequencia que sera usada como o valor retornado
+# pelo metodo datetime.tzname ().
+# Novo na versao 3.2.
+# Alterado na versao 3.7: O deslocamento do UTC nao esta restrito a um numero inteiro de minutos.
 dataX = datetime.datetime(2019,11,20,23,25,20)
 zonaX = datetime.timezone(datetime.timedelta(hours=-1),"ZonaX")
 
 # timezone.utcoffset (dt)
-# Retorne o valor fixo especificado quando a instância do fuso horário for construída.
-# O argumento dt é ignorado. O valor de retorno é uma instância de timedelta igual à diferença entre 
+# Retorne o valor fixo especificado quando a instancia do fuso horario for construida.
+# O argumento dt e ignorado. O valor de retorno e uma instancia de timedelta igual a diferença entre 
 # a hora local e o UTC.
-# Alterado na versão 3.7: O deslocamento do UTC não está restrito a um número inteiro de minutos.
+# Alterado na versao 3.7: O deslocamento do UTC nao esta restrito a um numero inteiro de minutos.
 print(zonaX.utcoffset(dataX)) # -1 day, 23:00:00
 
 # timezone.tzname (dt)
-# Retorne o valor fixo especificado quando a instância do fuso horário for construída.
-# Se o nome não for fornecido no construtor, o nome retornado por tzname (dt) será gerado a partir do 
-# valor do deslocamento da seguinte maneira. Se offset é timedelta (0), o nome é "UTC"; caso contrário, 
-# é uma string no formato UTC ± HH: MM, onde ± é o sinal de offset, HH e MM são dois dígitos de offset.hours 
+# Retorne o valor fixo especificado quando a instancia do fuso horario for construida.
+# Se o nome nao for fornecido no construtor, o nome retornado por tzname (dt) sera gerado a partir do 
+# valor do deslocamento da seguinte maneira. Se offset e timedelta (0), o nome e "UTC"; caso contrario, 
+# e uma string no formato UTC ± HH: MM, onde ± e o sinal de offset, HH e MM sao dois digitos de offset.hours 
 # e offset. minutos respectivamente.
-# Alterado na versão 3.6: o nome gerado a partir do deslocamento = timedelta (0) agora é simples 'UTC', 
-# não 'UTC + 00: 00'.
+# Alterado na versao 3.6: o nome gerado a partir do deslocamento = timedelta (0) agora e simples 'UTC', 
+# nao 'UTC + 00: 00'.
 print(zonaX.tzname(dataX)) # ZonaX
 
 # timezone.dst (dt)
@@ -474,8 +474,8 @@ print(zonaX.tzname(dataX)) # ZonaX
 print(zonaX.dst(dataX)) # None
 
 # timezone.fromutc (dt)
-# Retorno dt + deslocamento. O argumento dt deve ser uma instância de datetime consciente, com tzinfo definido como self.
+# Retorno dt + deslocamento. O argumento dt deve ser uma instancia de datetime consciente, com tzinfo definido como self.
 
 # timezone.utc
-#  O fuso horário UTC, fuso horário (timedelta (0)).
+#  O fuso horario UTC, fuso horario (timedelta (0)).
 print(zonaX.utc) # UTC
