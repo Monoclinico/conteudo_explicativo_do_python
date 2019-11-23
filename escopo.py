@@ -40,13 +40,17 @@ myfunc4() #900
 print(a) #900
 
 
-#palavra nonlocal faz com que um variavel tenha o escopo do nivel mais acima
+#palavra nonlocal faz com que o acesso seja ampliado para o escopo do nivel mais acima.
 
-def myfunc5():
-  b = 3000
-  def myinnerfunc():
-    nonlocal b
-    print(b)
-  myinnerfunc()
+def outer():
+    x = "local"
+    
+    def inner():
+        nonlocal x
+        x = "nonlocal"
+        print("inner:", x)
+    
+    inner()
+    print("outer:", x)
 
-myfunc5() 
+outer()
