@@ -39,11 +39,17 @@ def my_function4(child3, child2, child1):
 
 my_function4(child1 = "Emil", child2 = "Tobias", child3 = "Linus") #The youngest child is Linus
 
-#com inumeros parametros
+#com inumeros parametros (lista)
 def my_function5(*kids):
   print("The youngest child is " + kids[2])
 
 my_function5("Emil", "Tobias", "Linus") #The youngest child is Linus
+
+#com dicionario como parametro
+def my_function2153(**pesssoas):
+  print(pesssoas)
+
+my_function2153(Afonso=45,Beatriz=23) # {'Afonso': 45, 'Beatriz': 23}
 
 #recurcao
 def tri_recursion(k):
@@ -77,3 +83,23 @@ def myfunc(n):
 mydoubler = myfunc(2)
 
 print(mydoubler(11))
+
+# As anotacoes para parametros assumem a forma de expressoes opcionais que seguem o nome do parametro:
+# Os parametros podem ser declarados com: (parametro: expressão = expressão). 
+# Ou seja, as anotações sempre precedem o valor padrão de um parametro e as anotações e os 
+# valores padrão são opcionais. Assim como os sinais de igual são usados para indicar um valor padrão, 
+# dois pontos são usados para marcar anotações. 
+# Todas as expressões de anotação são avaliadas quando a definição da função é executada, 
+# assim como os valores padrão.
+# Usa-se ( -> ) para anotar qual sera o tipo do valor de retorno da funcao. Nao funciona com lambda. 
+# Exemplo:  
+def alguem(nome: str ,idade: int = 0, humano: bool = ...) -> str:
+  """Argumentos -> nome, idade, se e humano True ou False."""
+  if humano:
+    print(nome +  " tem " + str(idade) + " anos.")
+  else:
+    print("Nao e humano.")
+
+alguem("Marcos",45)
+print(alguem.__annotations__) 
+#{'nome': <class 'str'>, 'idade': <class 'int'>, 'humano': <class 'bool'>, 'return': <class 'str'>}
