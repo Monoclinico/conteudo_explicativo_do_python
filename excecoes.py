@@ -1,6 +1,7 @@
 # Excecoes no Python
 
 # =================================================================================================
+# TRY/EXCEPT
 # Mesmo se uma declaração ou expressão estiver sintaticamente correta,
 # poderá causar um erro quando for feita uma tentativa de executá-la. 
 # Os erros detectados durante a execução são chamados de exceções 
@@ -24,6 +25,7 @@ for entry in randomList:
 # Erro:  <class 'TypeError'>
 
 # =================================================================================================
+# TRY/EXCEPT
 # Uma cláusula try pode ter qualquer número de exceção, para manipulá-las de maneira diferente, 
 # mas apenas uma será executada caso ocorra uma exceção.
 # Exemplo:
@@ -39,6 +41,7 @@ for entry in randomList:
     print(erro) # division by zero
 
 # =================================================================================================
+# TRY/EXCEPT/FINALLY
 # A instrução try no Python pode ter uma cláusula finalmente opcional. 
 # Esta cláusula é executada independentemente do que for e geralmente é usada para liberar recursos externos.
 f: "arquivo" = ...
@@ -162,10 +165,24 @@ except ErroDeDivisaoPorZero as erro_zero:
   print(erro_zero.with_traceback(print(44)))
 
 
+# =================================================================================================
+# TRY/EXCEPT/ELSE/FINALLY
 
-
-
-
+try:
+  div = int(0)
+  print("Inicio da divisao.")
+  print(100/div)
+except TypeError:
+  print("Erro de tipo.")
+except ValueError:
+  print("Erro de valor.")
+except BaseException:
+  print("Erro desconhecido.")
+else:
+  #se nenhuma excecao ocorrer.
+  print("Nenhum erro ocorreu.")
+finally:
+  print("Fim da divisao.")
 
 
 
