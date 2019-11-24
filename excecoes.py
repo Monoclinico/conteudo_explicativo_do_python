@@ -2,16 +2,16 @@
 
 # =================================================================================================
 # TRY/EXCEPT
-# Mesmo se uma declaração ou expressão estiver sintaticamente correta,
-# poderá causar um erro quando for feita uma tentativa de executá-la. 
-# Os erros detectados durante a execução são chamados de exceções 
-# e não são incondicionalmente fatais: você aprenderá em breve como lidar com eles em programas Python. 
+# Mesmo se uma declaracao ou expressao estiver sintaticamente correta,
+# podera causar um erro quando for feita uma tentativa de executa-la. 
+# Os erros detectados durante a execucao sao chamados de excecoes 
+# e nao sao incondicionalmente fatais: voce aprendera em breve como lidar com eles em programas Python. 
 
-# No Python, as exceções podem ser tratadas usando uma instrução try.
-# Uma operação crítica que pode gerar uma exceção é colocada dentro da cláusula try e o 
-# código que manipula a exceção é gravado na cláusula exceto.
-# Cabe a nós quais operações realizamos depois de capturarmos a exceção. 
-# Aqui está um exemplo simples:
+# No Python, as excecoes podem ser tratadas usando uma instrucao try.
+# Uma operacao critica que pode gerar uma excecao e colocada dentro da clausula try e o 
+# codigo que manipula a excecao e gravado na clausula exceto.
+# Cabe a nos quais operacoes realizamos depois de capturarmos a excecao. 
+# Aqui esta um exemplo simples:
 import sys
 randomList = ['a', 0, ...]
 for entry in randomList:
@@ -26,8 +26,8 @@ for entry in randomList:
 
 # =================================================================================================
 # TRY/EXCEPT
-# Uma cláusula try pode ter qualquer número de exceção, para manipulá-las de maneira diferente, 
-# mas apenas uma será executada caso ocorra uma exceção.
+# Uma clausula try pode ter qualquer numero de excecao, para manipula-las de maneira diferente, 
+# mas apenas uma sera executada caso ocorra uma excecao.
 # Exemplo:
 for entry in randomList:
   try:
@@ -42,8 +42,8 @@ for entry in randomList:
 
 # =================================================================================================
 # TRY/EXCEPT/FINALLY
-# A instrução try no Python pode ter uma cláusula finalmente opcional. 
-# Esta cláusula é executada independentemente do que for e geralmente é usada para liberar recursos externos.
+# A instrucao try no Python pode ter uma clausula finalmente opcional. 
+# Esta clausula e executada independentemente do que for e geralmente e usada para liberar recursos externos.
 f: "arquivo" = ...
 try:
     f = open("test.txt",encoding = 'utf-8')
@@ -58,8 +58,8 @@ finally:
 
 # =================================================================================================
 # raise classe_de_erro("mensagem")
-# Na programação Python, as exceções são geradas quando erros correspondentes ocorrem no tempo de execução, 
-# mas podemos chama-las à força usando a palavra-chave raise.
+# Na programacao Python, as excecoes sao geradas quando erros correspondentes ocorrem no tempo de execucao, 
+# mas podemos chama-las a forca usando a palavra-chave raise.
 # Exemplo:
 
 try:
@@ -69,9 +69,9 @@ except:
 
 # =================================================================================================
 # assert (condition),("mensagem")
-# O Python possui uma declaração de declaração interna para usar a condição de declaração no programa. 
-# A declaração assert tem uma condição ou expressão que deveria ser sempre verdadeira. 
-# Se a condição for falsa, a declaração interrompe o programa e fornece um AssertionError.
+# O Python possui uma declaracao de declaracao interna para usar a condicao de declaracao no programa. 
+# A declaracao assert tem uma condicao ou expressao que deveria ser sempre verdadeira. 
+# Se a condicao for falsa, a declaracao interrompe o programa e fornece um AssertionError.
 # Exemplo:
 
 x = 1
