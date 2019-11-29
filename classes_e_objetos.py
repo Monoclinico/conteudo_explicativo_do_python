@@ -50,10 +50,41 @@ a2 = A2()
 a2.numero(3)
 print(a2.posicao) # 6
 
-# ======================= HERANCA ==============================]
+# ======================= HERANCA ==============================
 class ClasseBase:
   # Bloco da superclasse.
   pass
-class SubClasse1(ClasseBase):
+class ClasseBase2:
+  # Bloco da superclasse.
+  pass
+class SubClasseHerda1(ClasseBase):
   # Bloco da subclasse.
   pass
+class SubClasseHerda2(ClasseBase,ClasseBase2):
+  # Bloco da subclasse.
+  pass
+
+# ================== Chamando metodos de classes ancestrais sem o super ===========================
+class Pessoa:
+  nome: str = ...
+  altura: float = ...
+  def __init__(self, nome):
+    self.nome = nome
+  def set_altura(self, altura):
+    self.altura = altura
+
+class Genero():
+  sexo: str = ...
+  def __init__(self, sexo):
+    self.sexo = sexo
+
+class Homem(Pessoa,Genero):
+  def __init__(self, nome, altura):
+    Pessoa.__init__(self,nome)
+    Genero.__init__(self,"masculino")
+    Pessoa.set_altura(self,altura)
+
+marcos = Homem("Marcos",1.88)
+print(marcos.nome)
+print(marcos.sexo)
+print(marcos.altura)
