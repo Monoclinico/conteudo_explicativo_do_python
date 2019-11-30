@@ -83,8 +83,11 @@ class Homem(Pessoa,Genero):
     Pessoa.__init__(self,nome)
     Genero.__init__(self,"masculino")
     Pessoa.set_altura(self,altura)
+  def __repr__(self):
+    return "{} e {} e tem {}.".format(self.nome,self.sexo,self.altura)
 
 marcos = Homem("Marcos",1.88)
 print(marcos.nome)
 print(marcos.sexo)
 print(marcos.altura)
+print(marcos) # Marcos e masculino e tem 1.88.
