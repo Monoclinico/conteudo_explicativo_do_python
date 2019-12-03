@@ -576,3 +576,114 @@ class Distance():
 print(Distance().m) # 0.1
 b1 = Distance()
 print(b1.m) # 0.1
+
+# ------------------------ Metodos de Copia ----------------------------------
+# __copy__ (self)
+#      Define o comportamento de copy.copy () para instâncias da sua classe. 
+#      copy.copy () retorna uma cópia superficial do seu objeto.
+#      isso significa que, enquanto a instância em si é uma nova instância, todos os seus dados são referenciados.
+#      ou seja, o próprio objeto é copiado, mas seus dados ainda são referenciados 
+#      ( e, portanto, alterações nos dados em uma cópia superficial podem causar alterações no original).
+# __deepcopy__ (self, memodict = {})
+#      Define o comportamento de copy.deepcopy () para instâncias da sua classe. 
+#      copy.deepcopy () retorna uma cópia profunda do seu objeto - o objeto e seus dados são copiados. 
+#      memodict é um cache de objetos copiados anteriormente.
+#      isso otimiza a cópia e evita a recursão infinita ao copiar estruturas de dados recursivas. 
+#      Quando desejar copiar em profundidade um atributo individual, 
+#      chame copy.deepcopy () nesse atributo com memodict como o primeiro argumento.
+
+# -------------------- Metodos de pickling -------------------------------
+# Vamos mergulhar em decapagem. Digamos que você tenha um dicionário que deseja armazenar e recuperar mais tarde. 
+# Você pode escrever seu conteúdo em um arquivo, certificando-se cuidadosamente de escrever a sintaxe correta 
+# e recuperá-lo usando exec () ou processando a entrada do arquivo. 
+# Mas isso é precário, na melhor das hipóteses: se você armazenar dados importantes em texto sem formatação, 
+# eles poderão ser corrompidos ou alterados de várias maneiras para causar uma falha no programa 
+# ou pior execução de códigos maliciosos no seu computador.
+# Exemplo:
+# import pickle
+# data = {'foo': [1, 2, 3],
+#         'bar': ('Hello', 'world!'),
+#         'baz': True}
+# jar = open('data.pkl', 'wb')
+# pickle.dump(data, jar) # write the pickled data to the file jar
+# jar.close()
+
+# __getinitargs__(self)
+#     Se desejar que __init__ seja chamado quando sua classe não for escolhida, defina __getinitargs__, 
+#     que retornará uma tupla dos argumentos que você gostaria de passar para __init__. 
+#     Observe que esse método funcionará apenas para classes de estilo antigo.
+# __getnewargs__(self)
+#     Para classes de novo estilo, você pode influenciar quais argumentos são passados ​​para __new__ ao cancelar a seleção. 
+#     Esse método também deve retornar uma tupla de argumentos que serão passados ​​para __new__.
+# __getstate__(self)
+#     Em vez de o atributo __dict__ do objeto ser armazenado, você pode retornar um estado personalizado a ser 
+#     armazenado quando o objeto é selecionado. Esse estado será usado por __setstate__ quando o objeto não for escolhido.
+# __setstate__ (self, estado)
+#     Quando o objeto é retirado, se __setstate__ for definido, o estado do objeto será passado a ele em vez de diretamente aplicado ao __dict__ do objeto. Isso anda de mãos dadas com __getstate__: quando ambos são definidos, você pode representar o estado de pickled do objeto da maneira que desejar com o que quiser.
+# __reduce__(self)
+#     Ao definir tipos de extensão (ou seja, tipos implementados usando a API C do Python), você deve informar ao Python como selecioná-los, se desejar que eles os selecionem. __reduce __ () é chamado quando um objeto que o define é decapado. Ele pode retornar uma string que representa um nome global que o Python procurará e pickle, ou uma tupla. A tupla contém entre 2 e 5 elementos: um objeto que pode ser chamado para recriar o objeto, uma tupla de argumentos para esse objeto que pode ser chamado, estado a ser passado para __setstate__ (opcional), um iterador que gera itens da lista a serem selecionados (opcional) e um iterador que produz itens de dicionário a serem selecionados (opcional).
+# __reduce_ex __(self)
+#     __reduce_ex__ existe para compatibilidade. Se definido, __reduce_ex__ será chamado sobre __reduce__ na decapagem. __reduce__ também pode ser definido para versões mais antigas da API de decapagem que não suportavam __reduce_ex__.
+
+
+# --------------- Metodo de chamada de funcao ---------------------
+# __call __ (self, [args ...])
+#     Permite que uma instância de uma classe seja chamada como uma função. 
+#     Essencialmente, isso significa que x () é o mesmo que x .__ chama __ (). 
+#     Observe que __call__ recebe um número variável de argumentos; 
+#     isso significa que você define __call__ como faria com qualquer outra função, 
+#     assumindo quantos argumentos desejar.
+# Exemplo:
+class Quadrado:
+  def __init__(self,altura,largura):
+    self.altura = altura
+    self.largura = largura
+    self.set_area()
+  def set_area(self):
+    self.area = self.altura * self.largura
+  def get_area(self):
+    return self.area
+  def __call__(self, altura, largura):
+    self.altura = altura
+    self.largura = largura
+    self.set_area()
+
+q1= Quadrado(5,4)
+print(q1.get_area()) # 20
+q1(9,5)
+print(q1.get_area()) # 45
+
+# Exemplos de invocacao dos metodos:
+# __new__(cls [,...]) 	            instance = MyClass(arg1, arg2) 	
+# __init__(self [,...]) 	          instance = MyClass(arg1, arg2) 	
+# __cmp__(self, other) 	            self == other, self > other, etc.
+# __pos__(self) 	                  +self 
+# __neg__(self) 	                  -self 	
+# __invert__(self) 	                ~self 	
+# __index__(self) 	                x[self] 	
+# __nonzero__(self) 	              bool(self) 	
+# __getattr__(self, name)           self.name 
+# __setattr__(self, name, val) 	    self.name = val 	
+# __delattr__(self, name) 	        del self.name 	
+# __getattribute__(self, name) 	    self.name 	
+# __getitem__(self, key) 	          self[key] 
+# __setitem__(self, key, val) 	    self[key] = val 	
+# __delitem__(self, key) 	          del self[key] 	
+# __iter__(self) 	                  for x in self 	
+# __contains__(self, value) 	      value in self, value not in self 	
+# __call__(self [,...]) 	          self(args) 	
+# __enter__(self) 	                with self as x: 
+# __exit__(self, exc, val, trace)   with self as x: 
+# __getstate__(self) 	              pickle.dump(pkl_file, self)	
+# __setstate__(self) 	              data = pickle.load(pkl_file)
+
+
+
+# DETALHES IMPORTANTES:
+#  Como a distinção entre string e unicode foi eliminada no Python 3, __unicode__ desapareceu e 
+#  __bytes__ (que se comporta de maneira semelhante a __str__ e __unicode__ na 2.7) 
+#  existe para um novo built-in para a construção de matrizes de bytes.
+#  Como o padrão de divisão é a divisão verdadeira no Python 3, __div__ desapareceu no Python 3
+#  __coerce__ se foi devido à redundância com outros métodos mágicos e comportamento confuso
+#  __cmp__ desapareceu devido a redundância com outros métodos mágicos
+#  __nonzero__ foi renomeado para __bool__
