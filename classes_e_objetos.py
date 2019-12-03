@@ -316,8 +316,7 @@ n1 + 4 # 6
 # __trunc__(self)
 #      Implementa o comportamento de math.trunc (), ou seja, truncando para uma integral.
 
-# ------------ Metodos de operacoes de atribubuicao -------------------
-
+# ------------ Metodos de operacoes de atribuicao -------------------
 # __iadd__ (self, other)
 #     Implementa adição com atribuição.
 # __isub__ (self, other)
@@ -368,3 +367,212 @@ n1 + 4 # 6
 # __coerce__ (self, other)
 #      Método para implementar aritmética de modo misto. __coerce__ deve retornar None se a conversão de tipo for impossível. 
 #      Caso contrário, ele deve retornar um par (2-tupla) de si e de other, manipulado para ter o mesmo tipo.
+
+# -------------------- Metodos para representar as classes ------------------------------
+# __str__(self)
+#     Define o comportamento para quando str () é chamado em uma instância da sua classe.
+# __repr__(self)
+#     Define o comportamento para quando repr () é chamado em uma instância da sua classe. 
+#     A principal diferença entre str () e repr () é o público-alvo. 
+#     repr () tem como objetivo produzir uma saída que é mais legível por máquina 
+#     (em muitos casos, pode até ser um código Python válido), enquanto str () se destina a ser legível por humanos.
+# __unicode__(self)
+#     Define o comportamento para quando unicode () é chamado em uma instância da sua classe. 
+#     unicode () é como str (), mas retorna uma string unicode. 
+#     Cuidado: se um cliente chamar str () em uma instância da sua classe e você tiver definido apenas __unicode __ (), ele não funcionará. 
+#     Você deve sempre tentar definir __str __ () também para o caso de alguém não se dar ao luxo de usar unicode.
+# __format__ (self, formato_str)
+#     Define o comportamento para quando uma instância da sua classe é usada na formatação de seqüência de caracteres com novo estilo. 
+#     Por exemplo, "Olá, {0: abc}!". Format (a) levaria à chamada um formato .__ __ ("abc"). 
+#     Isso pode ser útil para definir seus self tipos numéricos ou de sequência que você deseja fornecer opções especiais de formatação.
+# __hash__(self)
+#     Define o comportamento para quando o hash () é chamado em uma instância da sua classe. 
+#     Ele precisa retornar um número inteiro e seu resultado é usado para comparação rápida de teclas em dicionários. 
+#     Observe que isso geralmente implica em implementar __eq__ também. Ative a seguinte regra: a == b implica hash (a) == hash (b).
+# __nonzero__(self)
+#     Define o comportamento para quando bool () é chamado em uma instância da sua classe. 
+#     Deve retornar True ou False, dependendo se você deseja considerar a instância como True ou False.
+# __dir__(self)
+#     Define o comportamento para quando dir () é chamado em uma instância da sua classe. 
+#     Este método deve retornar uma lista de atributos para o usuário. 
+#     Normalmente, implementar __dir__ é desnecessário, mas pode ser de vital importância para o uso interativo de suas classes, 
+#     se você redefinir __getattr__ ou __getattribute__ (que você verá na próxima seção) ou gerar atributos dinamicamente.
+# __sizeof__(self)
+#     Define o comportamento para quando sys.getsizeof () é chamado em uma instância da sua classe. 
+#     Isso deve retornar o tamanho do seu objeto, em bytes. 
+#     Isso geralmente é mais útil para classes Python implementadas em extensões C, mas ajuda a estar ciente disso.
+
+# -------------- Metodos de Controle de acesso a atributos ----------------------
+# __getattr__(self, nome)
+#     Você pode definir o comportamento para quando um usuário tentar acessar um atributo que não existe 
+#     (de maneira alguma ou ainda). Isso pode ser útil para capturar e redirecionar erros de ortografia comuns, 
+#     emitir avisos sobre o uso de atributos obsoletos (você ainda pode optar por calcular e retornar esse atributo, 
+#     se desejar) ou entregar habilmente um AttributeError. 
+#     Porém, ele só é chamado quando um atributo inexistente é acessado, portanto, não é uma solução de encapsulamento verdadeira.
+# __setattr__(self, nome, valor)
+#     Ao contrário de __getattr__, __setattr__ é uma solução de encapsulamento. 
+#     Ele permite definir o comportamento para atribuição a um atributo, 
+#     independentemente de esse atributo existir ou não, 
+#     o que significa que você pode definir regras personalizadas para quaisquer alterações nos valores dos atributos. No entanto, você deve ter cuidado com o uso de __setattr__, como o exemplo no final da lista mostrará.
+# __delattr__(self, nome)
+#     É exatamente o mesmo que __setattr__, mas para excluir atributos em vez de defini-los. 
+#     As mesmas precauções precisam ser tomadas como no __setattr__, 
+#     a fim de impedir a recursão infinita 
+#     (chamar del self.name na implementação de __delattr__ causaria recursão infinita).
+# __getattribute__(self, nome)
+#     Depois de tudo isso, __getattribute__ se encaixa muito bem com seus companheiros __setattr__ e __delattr__. 
+#     No entanto, eu não recomendo que você o use. __getattribute__ só pode ser usado com classes de novo estilo, 
+#     todas as classes são de novo estilo nas versões mais recentes do Python, 
+#     e nas versões mais antigas você pode criar uma classe de novo estilo subclassificando o objeto. 
+#     Ele permite definir regras sempre que um atributo for é acessado. 
+#     Ele sofre de alguns problemas de recursão infinita semelhantes aos de seus parceiros no crime 
+#     (desta vez, você chama o método __getattribute__ da classe base para evitar isso). 
+#     Também evita principalmente a necessidade de __getattr__, que, quando __getattribute__ é implementado, 
+#     só é chamado se for chamado explicitamente ou se um AttributeError for gerado.Este método pode ser usado 
+#     (afinal, é sua escolha), mas eu não o recomendo porque tem um pequeno caso de uso 
+#     (é muito mais raro precisarmos comportamento especial para recuperar um valor do que atribuir a ele) 
+#     e porque pode ser realmente difícil de implementar sem erros.
+
+# ----------------------- Metodos de Containers (Colecoes) ---------------------
+# __len__(self)
+#     Retorna o comprimento do contêiner. Parte do protocolo para recipientes imutáveis ​​e mutáveis.
+# __getitem__ (self, chave)
+#     Define o comportamento para quando um item é acessado, usando a notação própria [tecla]. 
+#     Isso também faz parte dos protocolos de contêineres mutáveis ​​e imutáveis. 
+#     Ele também deve gerar exceções apropriadas: 
+#     TypeError se o tipo da chave estiver errado e KeyError se não houver um valor correspondente para a chave.
+# __setitem__ (self, chave, valor)
+#     Define o comportamento para quando um item é atribuído, usando a notação self [nkey] = value. 
+#     Isso faz parte do protocolo de contêiner mutável. 
+#     Novamente, você deve aumentar KeyError e TypeError quando apropriado.
+# __delitem__ (slef, chave)
+#     Define o comportamento para quando um item é excluído (por exemplo, del self [chave]). 
+#     Isso é apenas parte do protocolo de contêiner mutável. 
+#     Você deve gerar as exceções apropriadas quando uma chave inválida for usada.
+# __iter__ (self)
+#     Deve retornar um iterador para o contêiner. 
+#     Os iteradores são retornados em vários contextos, principalmente pela função integrada iter () 
+#     e quando um contêiner é repetido usando o formulário para x no contêiner :. 
+#     Os iteradores são seus self objetos e também devem definir um método __iter__ que retorne self.
+# __reversed__ (self)
+#     Chamado para implementar o comportamento da função incorporada reversed ().
+#     Deve retornar uma versão invertida da sequência. 
+#     Implemente isso apenas se a classe de sequência estiver ordenada, como lista ou tupla.
+# __contains__(self, item)
+#     __contains__ define o comportamento dos testes de associação usando in e não in. 
+#     Por que isso não faz parte de um protocolo de sequência, você pergunta? 
+#     Como quando __contains__ não está definido, 
+#     o Python apenas repete a sequência e retorna True se encontrar o item que está procurando.
+# __missing__(self, chave)
+#     __missing__ é usado nas subclasses de dict. 
+#     Ele define o comportamento para sempre que uma chave é acessada que não existe em um dicionário 
+#     (por exemplo, se eu tivesse um dicionário d e dissesse d ["george"] 
+#     quando "george" não é uma chave no ditado, d. __missing__ ("george") seria chamado).
+
+# Exemplo:
+class FunctionalList:
+    '''A class wrapping a list with some extra functional magic, like head,
+    tail, init, last, drop, and take.'''
+
+    def __init__(self, values:list=None):
+        if values is None:
+            self.values = []
+        else:
+            self.values = values
+
+    def __len__(self):
+        return len(self.values)
+
+    def __getitem__(self, key):
+        # if key is of invalid type or value, the list values will raise the error
+        return self.values[key]
+
+    def __setitem__(self, key, value):
+        self.values[key] = value
+
+    def __delitem__(self, key):
+        del self.values[key]
+
+    def __iter__(self):
+        return iter(self.values)
+
+    def __reversed__(self):
+        return reversed(self.values)
+
+    def append(self, value):
+        self.values.append(value)
+    def head(self):
+        # get the first element
+        return self.values[0]
+    def tail(self):
+        # get all elements after the first
+        return self.values[1:]
+    def init(self):
+        # get elements up to the last
+        return self.values[:-1]
+    def last(self):
+        # get last element
+        return self.values[-1]
+    def drop(self, n):
+        """get all elements except first n"""
+        return self.values[n:]
+    def take(self, n):
+        # get first n elements
+        return self.values[:n]
+
+lista_personalizada = FunctionalList([0,1,2,3,4,5,6,7,8,9])
+print(lista_personalizada.drop(5)) # [5, 6, 7, 8, 9]
+for n in lista_personalizada:
+  print(n)
+
+# ---------------------- Metodos de checagem ------------------------------
+# Você também pode controlar como a reflexão usando as funções internas isinstance () e issubclass () 
+# se comporta definindo métodos mágicos. Os métodos mágicos são:
+
+# __instancecheck__ (self, instância)
+#      Verifica se uma instância é uma instância da classe que você definiu (por exemplo, isinstance (instância, classe).
+# __subclasscheck__ (self, subclasse)
+#      Verifica se uma classe subclasse a classe que você definiu (por exemplo, issubclass (subclasse, classe)).  
+  
+  
+# ---------------------- Metodos de contexto -------------------------------
+# Os gerenciadores de contexto permitem que ações de configuração e limpeza sejam executadas para objetos 
+# quando sua criação é agrupada com uma instrução with. 
+# O comportamento do gerenciador de contexto é determinado por dois métodos mágicos:
+  
+# __enter__(self)
+#      Define o que o gerenciador de contexto deve fazer no início do bloco criado pela instrução with. 
+#      Observe que o valor de retorno de __enter__ está vinculado ao destino da instrução with ou ao nome após o as.
+# __exit__(self, tipo de exceção, valor de exceção, retorno)
+#      Define o que o gerenciador de contexto deve fazer depois que seu bloco for executado (ou finalizado). 
+#      Pode ser usado para lidar com exceções, executar limpeza ou fazer algo sempre feito imediatamente após a ação no bloco. 
+#      Se o bloco for executado com sucesso, exception_type, exception_value e traceback serão None. 
+#      Caso contrário, você pode optar por manipular a exceção ou deixar que o usuário a manipule; 
+#      se você quiser lidar com isso, certifique-se de que __exit__ retorne True depois que tudo estiver dito e feito. 
+#      Se você não deseja que a exceção seja tratada pelo gerenciador de contexto, deixe acontecer.
+  
+# ---------------------- Metodos descritores -----------------------------------------
+# 
+# __get__ (self, instância, proprietário)
+#      Defina o comportamento para quando o valor do descritor é recuperado. 
+#       instance é a instância do objeto do proprietário. owner é a própria classe do proprietário.
+# __set__ (self, instância, valor)
+#      Defina o comportamento para quando o valor do descritor é alterado. 
+#      instance é a instância da classe do proprietário e value é o valor para definir o descritor.
+# __delete__ (self, instância)
+#      Defina o comportamento para quando o valor do descritor é excluído. 
+#      instance é a instância do objeto do proprietário. 
+  
+
+class Metros():
+    cem = 100
+    def __get__(self, instance, owner):
+        return instance.cm / self.cem
+  
+class Distance():
+    cm = 10
+    m = Metros()
+  
+print(Distance().m) # 0.1
+b1 = Distance()
+print(b1.m) # 0.1
