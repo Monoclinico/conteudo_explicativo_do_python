@@ -171,6 +171,59 @@ class K(I,H):
 
 K().spam()
 
+# ================================ SUPER COM PARAMETROS ===========================
+# No Python 3, a chamada super (Square, self) é equivalente à chamada super () sem parâmetros. 
+# O primeiro parâmetro refere-se à subclasse. 
+# enquanto o segundo parâmetro refere-se a um objeto  que, nesse caso, é próprio. 
+class Janela:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def area(self):
+        return self.length * self.width
+
+    def perimeter(self):
+        return 2 * self.length + 2 * self.width
+
+class JanelaQuadrada(Janela):
+    def __init__(self, length):
+        super(JanelaQuadrada, self).__init__(length, length)
+
+
+# =========================== SUPER COM HERANCA MULTIPLA ==========================
+class Terreno:
+  def __init__(self, comprimento, largura):
+    self.comprimento = comprimento
+    self.largura = largura
+  def area(self):
+    return self.comprimento * self.largura
+  def perimetro(self):
+    return (self.comprimento * 2) + (self.largura * 2)
+    
+class Hectare(Terreno):
+  def __init__(self):
+    super().__init__(100,100)
+
+class Casa:
+  def __init__(self, comprimento, largura):
+    self.comprimento = comprimento
+    self.largura = largura
+  def area(self):
+    return self.comprimento * self.largura
+  def perimetro(self):
+    return (self.comprimento * 2) + (self.largura * 2)
+
+class Fazenda(Hectare, Casa):
+  def __init__(self, comprimento_casa, largura_casa, hectares):
+    self.comprimento_casa = comprimento_casa
+    self.largura_casa = largura_casa
+    self.hectares = hectares
+
+  def area_total(self):
+    
+
+
 # ================================= OVERRIDE ========================================
 # Se uma classe herda de outra com os mesmos atributos ou métodos, ela as substitui.
 class Wolf: 
@@ -678,7 +731,6 @@ print(q1.get_area()) # 45
 # __setstate__(self) 	              data = pickle.load(pkl_file)
 
 
-
 # DETALHES IMPORTANTES:
 #  Como a distinção entre string e unicode foi eliminada no Python 3, __unicode__ desapareceu e 
 #  __bytes__ (que se comporta de maneira semelhante a __str__ e __unicode__ na 2.7) 
@@ -687,3 +739,60 @@ print(q1.get_area()) # 45
 #  __coerce__ se foi devido à redundância com outros métodos mágicos e comportamento confuso
 #  __cmp__ desapareceu devido a redundância com outros métodos mágicos
 #  __nonzero__ foi renomeado para __bool__
+
+
+# =============================== METODO DE CLASSE ================================
+# @classmethod
+# Métodos de objetos que examinamos até agora são chamados por uma instância de uma classe, 
+# que é então passada para o auto-parâmetro do método.
+# Os métodos de classe são diferentes - eles são chamados por uma classe, 
+# que é passada para o parâmetro cls do método.
+# Um uso comum desses métodos são os métodos de fábrica, que instanciam uma instância de uma classe, 
+# usando parâmetros diferentes daqueles geralmente passados para o construtor de classes.
+# Os métodos de classe são marcados com um decorador de método de classe.
+# CLS -> e a classe construtora
+class Massa:
+  def __init__(self, g):
+    self.gramas = g
+
+  def get_massa(self):
+    print(f"Massa: {self.gramas}g")
+
+  @classmethod # --> Com decorator
+  def quilos(cls, kg):
+    return cls(kg*1000)
+
+  def toneladas(cls,t):
+    return  cls(t*(1000**2))
+  toneladas = classmethod(toneladas) # Sem decorator
+
+pimenta = Massa(50)
+cimento = Massa.quilos(50)
+carro = Massa.toneladas(2.5)
+
+pimenta.get_massa() # 50.0g
+cimento.get_massa() # 50000.0g
+carro.get_massa() # 2500000.0g
+
+# ==================== METODO ESTATICO ====================
+# Métodos estáticos são semelhantes aos métodos de classe, exceto que eles não recebem argumentos adicionais; 
+# eles são idênticos às funções normais que pertencem a uma classe.
+# Eles são marcados com o decorador staticmethod ou criados com a classe staticmethod.
+
+class Pizza:
+  def __init__(self, sabor):
+    self.sabor = sabor
+
+  @staticmethod # --> Com decorator
+  def bordas():
+    print("Pizza de bordas recheadas.")
+
+  def pedacos():
+    print("Pizza de 8 pedacos.")
+  pedacos = staticmethod(pedacos) # Sem decorator
+
+pizza_queijo = Pizza("queijo")
+pizza_queijo.bordas()
+pizza_queijo.pedacos()
+Pizza.bordas()
+Pizza.pedacos()
