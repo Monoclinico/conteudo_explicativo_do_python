@@ -192,45 +192,46 @@ class JanelaQuadrada(Janela):
 
 
 # =========================== SUPER COM HERANCA MULTIPLA ==========================
-class Terreno:
-  def __init__(self, comprimento, largura):
-    self.comprimento = comprimento
-    self.largura = largura
-  def area(self):
-    return self.comprimento * self.largura
-  def perimetro(self):
-    return (self.comprimento * 2) + (self.largura * 2)
-    
-class Hectare(Terreno):
-  def __init__(self):
-    super().__init__(100,100)
+class Primeiro():
+    def __init__(self):
+        super().__init__() # chama Segundo que esta abaixo na hirarquia 
+        print("Primeiro")
 
-class Casa:
-  def __init__(self, comprimento, largura):
-    self.comprimento = comprimento
-    self.largura = largura
-  def area(self):
-    return self.comprimento * self.largura
-  def perimetro(self):
-    return (self.comprimento * 2) + (self.largura * 2)
+class Segundo():
+    def __init__(self):
+        super().__init__() # chama Terceiro que esta abaixo na hirarquia
+        print("Segundo")
 
-class Fazenda(Hectare, Casa):
-  def __init__(self, comprimento_casa, largura_casa, hectares):
-    self.comprimento_casa = comprimento_casa
-    self.largura_casa = largura_casa
-    self.hectares = hectares
+class Terceiro():
+    def __init__(self):
+        super().__init__() # chama object que esta abaixo na hirarquia
+        print("Terceiro")
 
-  def area_total(self):
-    
+class Quarto(Primeiro,Segundo,Terceiro):
+    def __init__(self):
+        super().__init__() # chama Primeiro que esta abaixo na hirarquia
+        print("Quarto")
 
+print(Quarto.mro())
+# <class '__main__.Quarto'>, 
+# <class '__main__.Primeiro'>,
+# <class '__main__.Segundo'>, 
+# <class '__main__.Terceiro'>, 
+# <class 'object'>
+
+q = Quarto()
+# Terceiro
+# Segundo
+# Primeiro
+# Quarto
 
 # ================================= OVERRIDE ========================================
 # Se uma classe herda de outra com os mesmos atributos ou métodos, ela as substitui.
-class Wolf: 
+
+class Wolf:
   def __init__(self, name, color):
     self.name = name
     self.color = color
-
   def bark(self):
     print("Grr...")
 
@@ -490,7 +491,8 @@ n1 + 4 # 6
 # __len__(self)
 #     Retorna o comprimento do contêiner. Parte do protocolo para recipientes imutáveis ​​e mutáveis.
 # __getitem__ (self, chave)
-#     Define o comportamento para quando um item é acessado, usando a notação própria [tecla]. 
+#     Define o comportamento para quando um item é acessado, usando a notação:
+#     -> self[key] 
 #     Isso também faz parte dos protocolos de contêineres mutáveis ​​e imutáveis. 
 #     Ele também deve gerar exceções apropriadas: 
 #     TypeError se o tipo da chave estiver errado e KeyError se não houver um valor correspondente para a chave.
