@@ -60,14 +60,74 @@ def call_counter(func):
 
     return helper
 
-@call_counter
+@call_counter # <- succ = call_counter(succ)
 def succ(x):
     return x + 1
+
 
 print(succ.calls) # 0
 for i in range(10):
     succ(i)
 print(succ.calls) # 10
+
+# ===================== DECORATOR COMPOSTO =========================
+# Exemplo 1:
+class separadores:
+  @staticmethod
+  def linhas(funcao):
+    def cima():
+      print("-"*10)
+      funcao()
+    return cima
+
+@separadores.linhas
+def linguagem():
+  print("Python")
+
+linguagem()
+
+# Exemplo 2:
+
+def fun1():
+  def fun2():
+    pass
+  def fun3(funcao):
+    def fun4():
+      print("<><><><><><><><><><>")
+      funcao()
+      print("<><><><><><><><><><>")
+    return fun4
+  def fun5(funcao):
+    def fun6():
+      print("++++++++++++++++++++")
+      funcao()
+      print("++++++++++++++++++++")
+    return fun6
+
+  fun2.linha1 = fun3
+  fun2.linha2 = fun5
+  return fun2
+
+f = fun1()
+
+@f.linha1
+def certo():
+  print("Deu Certo")
+
+@f.linha2
+def errado():
+  print("Deu Errado")
+
+certo()
+errado()
+
+# <><><><><><><><><><>
+# Deu Certo
+# <><><><><><><><><><>
+# ++++++++++++++++++++
+# Deu Errado
+# ++++++++++++++++++++
+
 
 # ======================== DECORATOR COM PARAMETRO ===========================
 
