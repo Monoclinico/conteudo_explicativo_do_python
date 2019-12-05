@@ -1,0 +1,121 @@
+======== Virtualenv ============
+-> O Virtualenv serve para criar ambientes virtuais com o Python.
+
+-> Vem com o Python desde a versão 3.3
+
+-> Garante a manipulação de versões diferentes do 
+
+Python e de bibliotecas. 
+
+O ambiente que o Virtualenv cria possui:
+- Código fonte
+- Dependências (site-packages)
+- Bibliotecas comuns do Python
+- pip
+- Python 2.x/ 3.x 
+
+
+Uso: 
+  virtualenv.py [OPTIONS] DEST_DIR
+  python -m virtualenv [OPTIONS] DEST_DIR
+
+Exemplo: virtualenv --python='/usr/local/bin/python3' ENV
+
+Opções:
+  --version   -> Show número da versão do programa e sair
+
+  -h, --help  -> Mostra esta mensagem de ajuda e sai.
+
+  -v, --verbose -> Aumenta a verbosidade.
+
+  -q, --quiet -> Diminui a verbosidade.
+
+  -p PYTHON_EXE, --python = PYTHON_EXE
+                        O caminho do intérprete Python para usar, por exemplo,
+                        --python = python3.5 usará o interpretador python3.5
+                        para criar o novo ambiente. O padrão é o
+                        intérprete que virtualenv foi instalado com
+                        (C: \ Arquivos de Programas \ Python37 \ python.exe)
+
+  --clear -> Limpe a instalação não raiz e comece do zero.
+
+  --no-site-packages DEPRECADO. Retido apenas para compatibilidade com versões anteriores.
+                        Não ter acesso a pacotes globais de sites agora é o
+                        comportamento padrão.
+
+  --system-site-packages
+                        Conceda ao ambiente virtual acesso ao ambiente global
+                        pacotes de sites.
+
+  --always-copy -> Sempre copie os arquivos em vez de fazer a ligação simbólica.
+
+  --relocatable -> Torna um ambiente virtualenv EXISTENTE relocável.
+                        Isso corrige scripts e cria todos os arquivos .pth
+                        relativo.
+
+  --no-setuptools -> Não instale setuptools na nova virtualenv.
+
+  --no-pip -> Não instale o pip no novo virtualenv.
+
+  --no-wheel -> Não instale o wheel no novo virtualenv.
+
+  --extra-pesquisa-dir = DIR
+                        Diretório para procurar distribuições setuptools / pip em.
+                        Esta opção pode ser usada várias vezes.
+
+  --download -> Baixe pacotes pré-instalados do PyPI.
+
+  --no-download, --never-download
+                        Não faça o download de pacotes pré-instalados do PyPI.
+
+  --prompt = PROMPT -> Fornece um prefixo de prompt alternativo para este
+                        meio Ambiente.
+
+  --setuptools -> DEPRECATED. Retido apenas para compatibilidade com versões anteriores.
+                        Esta opção não tem efeito.
+
+  --distribute -> DEPRECATED. Retido apenas para compatibilidade com versões anteriores.
+                        Esta opção não tem efeito.
+
+  --unzip-setuptools -> DEPRECATED. Retido apenas para compatibilidade com versões anteriores.
+                        Esta opção não tem efeito.
+
+
+==================== Para criar um ambiente virtual ========================
+-> virtualenv [opções] <nome_da_pasta>
+
+Após criar o seu novo ambiente, podemos ativá-lo com o comando:
+
+-> $ source ENV/bin/activate
+-> $ ENV/bin/activate
+
+O comando source lê um arquivo e executa os comandos contidos ali.
+Ao ativar o virtualenv, o diretório ENV/bin será adicionado como primeiro registro do 
+caminho $PATH do seu sistema operacional.
+Ele também altera o padrão do seu prompt, adicionando o prefixo (ENV) para indicar que
+vocês está em um ambiente controlado pelo virtualenv.
+
+Para desativar um ambiente virtual e remover tudo que foi feito e instalado, 
+retornando ao estado anterior do sistema (sem o virtualenv) basta executar:
+
+==================== Desativar um ambiente virtual ========================
+-> $ deactivate
+-> $ rm -r ENV
+
+Fazendo isso, seu ambiente virtual é desfeito e tudo que foi copiado para este ambiente é apagado (comando rm).
+
+==================== Padronizar os ambientes virtuais ========================
+
+Ao criar um novo ambiente, o virtualenv busca parâmetros no arquivo virtualenv.ini presente no caminho $HOME/.virtualenv/virtualenv.ini (Mac OS/Linux) ou %APPDATA%\virtualenv\virtualenv.ini (Windows).
+
+Nesse arquivo, podemos adicionar parâmetros do virtualenv que serão utilizados em todos os ambientes criados.
+
+Por exemplo, podemos definir opções da seguinte forma:
+
+[virtualenv]
+no-pip
+no-setuptools
+system-site-packages
+python = /opt/python-3.3/bin/python
+
+Assim, todo ambiente que criarmos terão essas opções por padrão (sem termos que digitar os parâmetros toda vez).
