@@ -87,7 +87,7 @@ Opções:
 Após criar o seu novo ambiente, podemos ativá-lo com o comando:
 
 -> $ source ENV/bin/activate
--> $ ENV/bin/activate
+-> $ ENV/Scripts/activate
 
 O comando source lê um arquivo e executa os comandos contidos ali.
 Ao ativar o virtualenv, o diretório ENV/bin será adicionado como primeiro registro do 
