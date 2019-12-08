@@ -119,3 +119,6 @@ system-site-packages
 python = /opt/python-3.3/bin/python
 
 Assim, todo ambiente que criarmos terão essas opções por padrão (sem termos que digitar os parâmetros toda vez).
+
+====================== Usar o ambiente virtual ==========================
+Para usar o ambiente virtual, os arquivos deverão ser executados com o python.exe do ambiente vitual. 
