@@ -122,3 +122,13 @@ conjunto_1 = {6,8,7}
 conjunto_2 = {8,7,6,5,1}
 conjunto_1.update(conjunto_2)
 print(conjunto_1) # {1, 5, 6, 7, 8}
+
+
+A = set({2,4,5,6,7})
+B = set({9,4,10,44})
+#Diferenca
+print(B - A) #{9, 10, 44}
+#Interseccao
+print(B & A) #{4}
+#Uniao
+print(B | A) # {2, 4, 5, 6, 7, 9, 10, 44}
