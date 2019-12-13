@@ -155,11 +155,27 @@ class DecorarNome:
     def __call__(self,nome):
         self.f(nome)
 
+    @staticmethod
+    def coloca_sobrenome(f):
+      def sobrenome(nome):
+        print("Sobrenome:")
+        f(nome)
+      return sobrenome
+
+
 @DecorarNome
 def nome(nome):
-    print(nome)
+  print(nome)
 
 nome("Jeremias") # Jeremias
+
+@DecorarNome.coloca_sobrenome
+def segundo_nome(nome):
+  print(nome)
+
+segundo_nome("Camargo")
+# Sobrenome:
+# Camargo
 
 # ======================== PROPERTY ================================
 # Um método usado para obter um valor é decorado com "@property", ou seja, 
