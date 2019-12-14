@@ -31,6 +31,27 @@ print(dicionario) # {'um': 'numero', 'dois': 'numero'}
 dicionario = {"um":1,"dois":2}
 print(dicionario.get("um")) #1
 
+# =================== argumento padrao com get de dicionario =================
+# Quando "get ()" é chamado, verifica se a chave fornecida existe no dict.
+# Se existir, o valor dessa chave será retornado.
+# Se ele não existir, o valor do argumento padrão será retornado.
+
+name_for_userid = {
+    382: "Alice",
+    590: "Bob",
+    951: "Dilbert"         
+}
+
+def ola(userid):
+    print("Hi %s!" % name_for_userid.get(userid, "alguem"))
+
+ola(382)
+#"Hi Alice!"
+
+ola(333333)
+#"Hi there!"
+
+
 # items()	Returns a list containing a tuple for each key value pair.
 # items() Retorna uma lista contendo varias tuplas com cada chave e seu valor.
 dicionario = {"um":1,"dois":2}
