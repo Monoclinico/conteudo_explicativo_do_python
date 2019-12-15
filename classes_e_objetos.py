@@ -798,3 +798,23 @@ pizza_queijo.bordas()
 pizza_queijo.pedacos()
 Pizza.bordas()
 Pizza.pedacos()
+
+# ================================ CLASSE COM DOIS CONSTRUTORES =================
+class Quente:
+  def __init__(self):
+    self.estado = "quente"
+class Frio:
+  def __init__(self):
+    self.estado = "frio"
+class Agua(Quente,Frio):
+  def __init__(self,estado:bool=True):
+    if estado:
+      Quente.__init__(self)
+    else:
+      Frio.__init__(self)
+    
+
+agua_com_gas = Agua(False)
+agua_com_cafe = Agua(True)
+print(agua_com_gas.estado) # frio
+print(agua_com_cafe.estado) # quente
