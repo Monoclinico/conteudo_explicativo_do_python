@@ -103,13 +103,18 @@ print(vowels)
 elip = ...
 print(type(elip)) # <class 'ellipsis'>
 print(elip) # Ellipsis
-
+print(elip.__class__) # <class 'ellipsis'>
 
 # ================ ANNOTATIONS ==================================================
 some_number: int      # variavel com a anotacao de tipo inteiro e sem valor inicial.
 some_list: list = []  # variavel com a anotacao de tipo lista e com valor inicial.
+soma_name: str = ... # variavel iniciada sem qualquer valor.
 
 some_number = 8
-print(some_number)
+some_list.append(1)
+
+print(some_number) #8
+print(some_list) # [1]
+print(soma_name) # Ellipsis
 
 
