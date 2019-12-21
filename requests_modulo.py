@@ -1,11 +1,11 @@
-# Requests é uma biblioteca HTTP para Python simples e elegante, feita para seres humanos. 
+# Requests e uma biblioteca HTTP para Python simples e elegante, feita para seres humanos. 
 
 import requests
 
 # =================== METODOS ====================================
 
 # GET ----------------------------------------
-# O método HTTP GET solicita uma representação do recurso especificado. Solicitações usando GET só devem recuperar dados
+# O metodo HTTP GET solicita uma representacao do recurso especificado. Solicitacoes usando GET so devem recuperar dados
 # requests.get
 # get(url, params=None, headers: Optional[MutableMapping[Text, Text]]=..., cookies: Union[None, RequestsCookieJar, 
 # MutableMapping[Text, Text]]=..., files: Optional[MutableMapping[Text, IO]]=..., auth: Union[None, Tuple[Text, Text], 
@@ -18,7 +18,7 @@ import requests
 r_get = requests.get('http://github.com/timeline.json',params={"texto":"ola"},timeout=1,allow_redirects=True)
 
 # POST ----------------------------------------
-# O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
+# O metodo POST e utilizado para submeter uma entidade a um recurso especifico, frequentemente causando uma mudanca no estado do recurso ou efeitos colaterais no servidor.
 # requests.post
 # post(url, data=None, json=None, headers: Optional[MutableMapping[Text, Text]]=..., 
 # cookies: Union[None, RequestsCookieJar, MutableMapping[Text, Text]]=..., files: Optional[MutableMapping[Text, IO]]=..., 
@@ -28,23 +28,23 @@ r_get = requests.get('http://github.com/timeline.json',params={"texto":"ola"},ti
 # verify: Union[None, bool, Text]=..., cert: Union[Text, Tuple[Text, Text], None]=...)
 
 # PUT ----------------------------------------
-# O método PUT substitui todas as atuais representações do recurso de destino pela carga de dados da requisição.
+# O metodo PUT substitui todas as atuais representacoes do recurso de destino pela carga de dados da requisicao.
 # requests.put()
 
 # PATCH ----------------------------------------
-# O método PATCH é utilizado para aplicar modificações parciais em um recurso.
+# O metodo PATCH e utilizado para aplicar modificacoes parciais em um recurso.
 # requests.patch()
 
 # DELETE ----------------------------------------
-# O método DELETE remove um recurso específico.
+# O metodo DELETE remove um recurso especifico.
 # requests.delete()
 
 # HEAD ----------------------------------------
-# O método HEAD solicita uma resposta de forma idêntica ao método GET, porém sem conter o corpo da resposta.
+# O metodo HEAD solicita uma resposta de forma identica ao metodo GET, porem sem conter o corpo da resposta.
 # requests.head()
 
 # OPTIONS ----------------------------------------
-# O método OPTIONS é usado para descrever as opções de comunicação com o recurso de destino.
+# O metodo OPTIONS e usado para descrever as opcoes de comunicacao com o recurso de destino.
 # requests.options()
 
 #Exemplo:
@@ -134,26 +134,26 @@ r_options = requests.options('http://github.com/timeline.json')
 # =========================== EXCEPTIONS ===========================
 
 # exception requests.RequestException(*args, **kwargs)[source]
-#     Ocorreu uma exceção ambígua ao lidar com sua solicitação.
+#     Ocorreu uma excecao ambigua ao lidar com sua solicitacao.
 
 # exception requests.ConnectionError(*args, **kwargs)[source]
-#     Ocorreu um erro de conexão.
+#     Ocorreu um erro de conexao.
 
 # exception requests.HTTPError(*args, **kwargs)[source]
 #     Ocorreu um erro HTTP.
 
 # exception requests.URLRequired(*args, **kwargs)[source]
-#     É necessário um URL válido para fazer uma solicitação.
+#     e necessario um URL valido para fazer uma solicitacao.
 
 # exception requests.TooManyRedirects(*args, **kwargs)[source]
 #     Muitos redirecionamentos.
 
 # exception requests.ConnectTimeout(*args, **kwargs)[source]
-#     A solicitação expirou ao tentar conectar-se ao servidor remoto.
-#     É possível tentar novamente as solicitações que produziram esse erro.
+#     A solicitacao expirou ao tentar conectar-se ao servidor remoto.
+#     e possivel tentar novamente as solicitacoes que produziram esse erro.
 
 # exception requests.ReadTimeout(*args, **kwargs)[source]
-#     O servidor não enviou nenhum dado no período alocado.
+#     O servidor nao enviou nenhum dado no periodo alocado.
 
 # exception requests.Timeout(*args, **kwargs)[source]
 #     O pedido excedeu o tempo limite.
@@ -161,106 +161,189 @@ r_options = requests.options('http://github.com/timeline.json')
 
 # ========================== RESPONSE =================================
 # class requests.Response[source]
-# O objeto Response, que contém a resposta de um servidor a uma solicitação HTTP.
+# O objeto Response, que contem a resposta de um servidor a uma solicitacao HTTP.
 
 #Exemplo:
 resposta = requests.get("https://github.com/timeline.json")
 
-#A codificação aparente, fornecida pela biblioteca chardet.
+#A codificacao aparente, fornecida pela biblioteca chardet.
 print(resposta.apparent_encoding) # utf-8
 
-# Conteúdo da resposta, em bytes.
+# Conteudo da resposta, em bytes.
 print(resposta.content) # b'abcd...'
 
 # Um pote de cookies que o servidor enviou de volta.
 cookie_da_resposta = resposta.cookies
 print(cookie_da_resposta.items())
 
-# A quantidade de tempo decorrido entre o envio da solicitação e a chegada da resposta (como um intervalo de tempo). 
-# Essa propriedade mede especificamente o tempo gasto entre o envio do primeiro byte da solicitação e 
-# o término da análise dos cabeçalhos. Portanto, não é afetado pelo consumo do conteúdo da resposta ou 
+# A quantidade de tempo decorrido entre o envio da solicitacao e a chegada da resposta (como um intervalo de tempo). 
+# Essa propriedade mede especificamente o tempo gasto entre o envio do primeiro byte da solicitacao e 
+# o termino da analise dos cabecalhos. Portanto, nao e afetado pelo consumo do conteudo da resposta ou 
 # do valor do argumento da palavra-chave stream.
 print(resposta.elapsed)
 
-# Codificação para decodificar ao acessar r.text.
+# Codificacao para decodificar ao acessar r.text.
 print(resposta.encoding) # utf-8
 
-# Dicionário que diferencia maiúsculas de minúsculas de cabeçalhos de resposta.
-#  Por exemplo, os cabeçalhos ['content-encoding'] retornarão o valor de um cabeçalho de resposta 'Content-Encoding'.
+# Dicionario que diferencia maiusculas de minusculas de cabecalhos de resposta.
+#  Por exemplo, os cabecalhos ['content-encoding'] retornarao o valor de um cabecalho de resposta 'Content-Encoding'.
 print(resposta.headers)
 
-# Uma lista de objetos de resposta do histórico da solicitação. Qualquer resposta de redirecionamento terminará aqui. 
-# A lista é classificada da solicitação mais antiga à mais recente.
+# Uma lista de objetos de resposta do historico da solicitacao. Qualquer resposta de redirecionamento terminara aqui. 
+# A lista e classificada da solicitacao mais antiga a mais recente.
 print(resposta.history)
 
-# Verdadeiro se esta resposta for uma das versões permanentes do redirecionamento.
+# Verdadeiro se esta resposta for uma das versoes permanentes do redirecionamento.
 print(resposta.is_permanent_redirect)
 
 # Verdadeiro se esta resposta for um redirecionamento HTTP bem formado que poderia ter sido processado automaticamente 
 # (por Session.resolve_redirects).
 print(resposta.is_redirect)
 
-# Repete os dados da resposta. Quando stream = True é definido na solicitação, isso evita a leitura do conteúdo de uma vez na memória para respostas grandes.
-# O tamanho do pedaço é o número de bytes que ele deve ler na memória. Esse não é necessariamente o comprimento de cada item retornado, pois a decodificação pode ocorrer.
-# chunk_size deve ser do tipo int ou None. Um valor Nenhum funcionará de maneira diferente, dependendo do valor do fluxo. 
-# stream = True lerá os dados conforme eles chegarem em qualquer tamanho que os pedaços forem recebidos. Se stream = False, os dados são retornados como um único pedaço.
-# Se decode_unicode for True, o conteúdo será decodificado usando a melhor codificação disponível com base na resposta.
+# Repete os dados da resposta. Quando stream = True e definido na solicitacao, isso evita a leitura do conteudo de uma vez na memoria para respostas grandes.
+# O tamanho do pedaco e o numero de bytes que ele deve ler na memoria. Esse nao e necessariamente o comprimento de cada item retornado, pois a decodificacao pode ocorrer.
+# chunk_size deve ser do tipo int ou None. Um valor Nenhum funcionara de maneira diferente, dependendo do valor do fluxo. 
+# stream = True lera os dados conforme eles chegarem em qualquer tamanho que os pedacos forem recebidos. Se stream = False, os dados sao retornados como um unico pedaco.
+# Se decode_unicode for True, o conteudo sera decodificado usando a melhor codificacao disponivel com base na resposta.
 dados_resposta = resposta.iter_content(chunk_size=20,decode_unicode=True)
 print(next(dados_resposta))
 print(next(dados_resposta))
 
-# Repete os dados da resposta, uma linha de cada vez. Quando stream = True é definido na solicitação, isso evita a leitura do conteúdo de uma vez na memória para respostas grandes.
-# Nota:Este método não é seguro para reentrada.
+# Repete os dados da resposta, uma linha de cada vez. Quando stream = True e definido na solicitacao, isso evita a leitura do conteudo de uma vez na memoria para respostas grandes.
+# Nota:Este metodo nao e seguro para reentrada.
 dados_linhas_resposta = resposta.iter_lines(chunk_size=512,decode_unicode=True,delimiter="|")
 print(next(dados_linhas_resposta))
 
-# Retorna o conteúdo codificado por json de uma resposta, se houver.
-# Parâmetros: ** kwargs - argumentos opcionais que o json.loads utiliza.
-# Gera: ValueError - Se o corpo da resposta não contiver json válido.
+# Retorna o conteudo codificado por json de uma resposta, se houver.
+# Parametros: ** kwargs - argumentos opcionais que o json.loads utiliza.
+# Gera: ValueError - Se o corpo da resposta nao contiver json valido.
 print(resposta.json())
 
-# Retorna os links de cabeçalho analisados da resposta, se houver.
+# Retorna os links de cabecalho analisados da resposta, se houver.
 print(resposta.links)
 
-# Retorna um PreparedRequest para a próxima solicitação em uma cadeia de redirecionamento, se houver uma.
+# Retorna um PreparedRequest para a proxima solicitacao em uma cadeia de redirecionamento, se houver uma.
 proxima_resposta = resposta.next
 print(proxima_resposta)
 
-# Retorna True se status_code for menor que 400; False, se não.
+# Retorna True se status_code for menor que 400; False, se nao.
 
-# Este atributo verifica se o código de status da resposta está entre 400 e 600 para ver se houve um erro do 
-# cliente ou um erro do servidor. Se o código de status estiver entre 200 e 400, isso retornará True. 
-# Esta não é uma verificação para ver se o código de resposta está 200 OK.
+# Este atributo verifica se o codigo de status da resposta esta entre 400 e 600 para ver se houve um erro do 
+# cliente ou um erro do servidor. Se o codigo de status estiver entre 200 e 400, isso retornara True. 
+# Esta nao e uma verificacao para ver se o codigo de resposta esta 200 OK.
 print(resposta.ok)
 
-# Representação de resposta de objeto semelhante a arquivo (para uso avançado).
-# O uso de raw requer que stream = True seja definido na solicitação. 
-# Este requisito não se aplica para uso interno em Solicitações.
+# Representacao de resposta de objeto semelhante a arquivo (para uso avancado).
+# O uso de raw requer que stream = True seja definido na solicitacao. 
+# Este requisito nao se aplica para uso interno em Solicitacoes.
 print(resposta.raw)
 
-# Motivo textual do status HTTP respondido, p. "Não encontrado" ou "OK".
+# Motivo textual do status HTTP respondido, p. "Nao encontrado" ou "OK".
 print(resposta.reason)
 
-# O objeto PreparedRequest ao qual esta é uma resposta.
+# O objeto PreparedRequest ao qual esta e uma resposta.
 print(resposta.request)
 
-# Código inteiro do status HTTP respondido, por exemplo 404 ou 200.
+# Codigo inteiro do status HTTP respondido, por exemplo 404 ou 200.
 print(resposta.status_code)
 
-# Conteúdo da resposta, em unicode.
-# Se Response.encoding for None, a codificação será adivinhada usando chardet.
-# A codificação do conteúdo da resposta é determinada com base apenas nos cabeçalhos HTTP, seguindo a RFC 2616 à letra. 
-# Se você puder tirar proveito do conhecimento não HTTP para adivinhar melhor a codificação, 
+# Conteudo da resposta, em unicode.
+# Se Response.encoding for None, a codificacao sera adivinhada usando chardet.
+# A codificacao do conteudo da resposta e determinada com base apenas nos cabecalhos HTTP, seguindo a RFC 2616 a letra. 
+# Se voce puder tirar proveito do conhecimento nao HTTP para adivinhar melhor a codificacao, 
 # defina r.encoding apropriadamente antes de acessar esta propriedade.
 print(resposta.text)
 
 # Local final do URL da resposta.
 print(resposta.url)
 
-# Libera a conexão de volta ao pool. Depois que esse método for chamado, 
-# o objeto bruto subjacente não deverá ser acessado novamente.
-# Nota: Normalmente, não precisa ser chamado explicitamente.
+# Libera a conexao de volta ao pool. Depois que esse metodo for chamado, 
+# o objeto bruto subjacente nao devera ser acessado novamente.
+# Nota: Normalmente, nao precisa ser chamado explicitamente.
 resposta.close()
 
 # Gera HTTPError armazenado, se um ocorreu.
-resposta.raise_for_status()
+try:
+  resposta.raise_for_status()
+except:
+  pass
+
+# ==================== CODIGOS DO STATUS DA REQUISICAO ======================
+
+# requests.codes
+
+# O objeto codes define um mapeamento de nomes comuns para status HTTP para seus codigos numericos, 
+# acessiveis como atributos ou como itens de dicionario.
+
+
+    # 100: continue
+    # 101: switching_protocols
+    # 102: processing
+    # 103: checkpoint
+    # 122: uri_too_long, request_uri_too_long
+    # 200: ok, okay, all_ok, all_okay, all_good, \o/, ✓
+    # 201: created
+    # 202: accepted
+    # 203: non_authoritative_info, non_authoritative_information
+    # 204: no_content
+    # 205: reset_content, reset
+    # 206: partial_content, partial
+    # 207: multi_status, multiple_status, multi_stati, multiple_stati
+    # 208: already_reported
+    # 226: im_used
+    # 300: multiple_choices
+    # 301: moved_permanently, moved, \o-
+    # 302: found
+    # 303: see_other, other
+    # 304: not_modified
+    # 305: use_proxy
+    # 306: switch_proxy
+    # 307: temporary_redirect, temporary_moved, temporary
+    # 308: permanent_redirect, resume_incomplete, resume
+    # 400: bad_request, bad
+    # 401: unauthorized
+    # 402: payment_required, payment
+    # 403: forbidden
+    # 404: not_found, -o-
+    # 405: method_not_allowed, not_allowed
+    # 406: not_acceptable
+    # 407: proxy_authentication_required, proxy_auth, proxy_authentication
+    # 408: request_timeout, timeout
+    # 409: conflict
+    # 410: gone
+    # 411: length_required
+    # 412: precondition_failed, precondition
+    # 413: request_entity_too_large
+    # 414: request_uri_too_large
+    # 415: unsupported_media_type, unsupported_media, media_type
+    # 416: requested_range_not_satisfiable, requested_range, range_not_satisfiable
+    # 417: expectation_failed
+    # 418: im_a_teapot, teapot, i_am_a_teapot
+    # 421: misdirected_request
+    # 422: unprocessable_entity, unprocessable
+    # 423: locked
+    # 424: failed_dependency, dependency
+    # 425: unordered_collection, unordered
+    # 426: upgrade_required, upgrade
+    # 428: precondition_required, precondition
+    # 429: too_many_requests, too_many
+    # 431: header_fields_too_large, fields_too_large
+    # 444: no_response, none
+    # 449: retry_with, retry
+    # 450: blocked_by_windows_parental_controls, parental_controls
+    # 451: unavailable_for_legal_reasons, legal_reasons
+    # 499: client_closed_request
+    # 500: internal_server_error, server_error, /o\, ✗
+    # 501: not_implemented
+    # 502: bad_gateway
+    # 503: service_unavailable, unavailable
+    # 504: gateway_timeout
+    # 505: http_version_not_supported, http_version
+    # 506: variant_also_negotiates
+    # 507: insufficient_storage
+    # 509: bandwidth_limit_exceeded, bandwidth
+    # 510: not_extended
+    # 511: network_authentication_required, network_auth, network_authentication
+
+#Exemplo:
+print(requests.codes['gone']) # 410
