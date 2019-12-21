@@ -129,3 +129,33 @@ r_options = requests.options('http://github.com/timeline.json')
 #     Parameters:	
 #         url – URL for the new Request object.
 #         **kwargs – Optional arguments that request takes.
+
+
+# =========================== EXCEPTIONS ===========================
+
+# exception requests.RequestException(*args, **kwargs)[source]
+#     Ocorreu uma exceção ambígua ao lidar com sua solicitação.
+
+# exception requests.ConnectionError(*args, **kwargs)[source]
+#     Ocorreu um erro de conexão.
+
+# exception requests.HTTPError(*args, **kwargs)[source]
+#     Ocorreu um erro HTTP.
+
+# exception requests.URLRequired(*args, **kwargs)[source]
+#     É necessário um URL válido para fazer uma solicitação.
+
+# exception requests.TooManyRedirects(*args, **kwargs)[source]
+#     Muitos redirecionamentos.
+
+# exception requests.ConnectTimeout(*args, **kwargs)[source]
+#     A solicitação expirou ao tentar conectar-se ao servidor remoto.
+#     É possível tentar novamente as solicitações que produziram esse erro.
+
+# exception requests.ReadTimeout(*args, **kwargs)[source]
+#     O servidor não enviou nenhum dado no período alocado.
+
+# exception requests.Timeout(*args, **kwargs)[source]
+#     O pedido excedeu o tempo limite.
+#     A captura desse erro captura os erros ConnectTimeout e ReadTimeout.
+
