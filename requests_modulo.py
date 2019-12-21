@@ -159,3 +159,108 @@ r_options = requests.options('http://github.com/timeline.json')
 #     O pedido excedeu o tempo limite.
 #     A captura desse erro captura os erros ConnectTimeout e ReadTimeout.
 
+# ========================== RESPONSE =================================
+# class requests.Response[source]
+# O objeto Response, que contém a resposta de um servidor a uma solicitação HTTP.
+
+#Exemplo:
+resposta = requests.get("https://github.com/timeline.json")
+
+#A codificação aparente, fornecida pela biblioteca chardet.
+print(resposta.apparent_encoding) # utf-8
+
+# Conteúdo da resposta, em bytes.
+print(resposta.content) # b'abcd...'
+
+# Um pote de cookies que o servidor enviou de volta.
+cookie_da_resposta = resposta.cookies
+print(cookie_da_resposta.items())
+
+# A quantidade de tempo decorrido entre o envio da solicitação e a chegada da resposta (como um intervalo de tempo). 
+# Essa propriedade mede especificamente o tempo gasto entre o envio do primeiro byte da solicitação e 
+# o término da análise dos cabeçalhos. Portanto, não é afetado pelo consumo do conteúdo da resposta ou 
+# do valor do argumento da palavra-chave stream.
+print(resposta.elapsed)
+
+# Codificação para decodificar ao acessar r.text.
+print(resposta.encoding) # utf-8
+
+# Dicionário que diferencia maiúsculas de minúsculas de cabeçalhos de resposta.
+#  Por exemplo, os cabeçalhos ['content-encoding'] retornarão o valor de um cabeçalho de resposta 'Content-Encoding'.
+print(resposta.headers)
+
+# Uma lista de objetos de resposta do histórico da solicitação. Qualquer resposta de redirecionamento terminará aqui. 
+# A lista é classificada da solicitação mais antiga à mais recente.
+print(resposta.history)
+
+# Verdadeiro se esta resposta for uma das versões permanentes do redirecionamento.
+print(resposta.is_permanent_redirect)
+
+# Verdadeiro se esta resposta for um redirecionamento HTTP bem formado que poderia ter sido processado automaticamente 
+# (por Session.resolve_redirects).
+print(resposta.is_redirect)
+
+# Repete os dados da resposta. Quando stream = True é definido na solicitação, isso evita a leitura do conteúdo de uma vez na memória para respostas grandes.
+# O tamanho do pedaço é o número de bytes que ele deve ler na memória. Esse não é necessariamente o comprimento de cada item retornado, pois a decodificação pode ocorrer.
+# chunk_size deve ser do tipo int ou None. Um valor Nenhum funcionará de maneira diferente, dependendo do valor do fluxo. 
+# stream = True lerá os dados conforme eles chegarem em qualquer tamanho que os pedaços forem recebidos. Se stream = False, os dados são retornados como um único pedaço.
+# Se decode_unicode for True, o conteúdo será decodificado usando a melhor codificação disponível com base na resposta.
+dados_resposta = resposta.iter_content(chunk_size=20,decode_unicode=True)
+print(next(dados_resposta))
+print(next(dados_resposta))
+
+# Repete os dados da resposta, uma linha de cada vez. Quando stream = True é definido na solicitação, isso evita a leitura do conteúdo de uma vez na memória para respostas grandes.
+# Nota:Este método não é seguro para reentrada.
+dados_linhas_resposta = resposta.iter_lines(chunk_size=512,decode_unicode=True,delimiter="|")
+print(next(dados_linhas_resposta))
+
+# Retorna o conteúdo codificado por json de uma resposta, se houver.
+# Parâmetros: ** kwargs - argumentos opcionais que o json.loads utiliza.
+# Gera: ValueError - Se o corpo da resposta não contiver json válido.
+print(resposta.json())
+
+# Retorna os links de cabeçalho analisados da resposta, se houver.
+print(resposta.links)
+
+# Retorna um PreparedRequest para a próxima solicitação em uma cadeia de redirecionamento, se houver uma.
+proxima_resposta = resposta.next
+print(proxima_resposta)
+
+# Retorna True se status_code for menor que 400; False, se não.
+
+# Este atributo verifica se o código de status da resposta está entre 400 e 600 para ver se houve um erro do 
+# cliente ou um erro do servidor. Se o código de status estiver entre 200 e 400, isso retornará True. 
+# Esta não é uma verificação para ver se o código de resposta está 200 OK.
+print(resposta.ok)
+
+# Representação de resposta de objeto semelhante a arquivo (para uso avançado).
+# O uso de raw requer que stream = True seja definido na solicitação. 
+# Este requisito não se aplica para uso interno em Solicitações.
+print(resposta.raw)
+
+# Motivo textual do status HTTP respondido, p. "Não encontrado" ou "OK".
+print(resposta.reason)
+
+# O objeto PreparedRequest ao qual esta é uma resposta.
+print(resposta.request)
+
+# Código inteiro do status HTTP respondido, por exemplo 404 ou 200.
+print(resposta.status_code)
+
+# Conteúdo da resposta, em unicode.
+# Se Response.encoding for None, a codificação será adivinhada usando chardet.
+# A codificação do conteúdo da resposta é determinada com base apenas nos cabeçalhos HTTP, seguindo a RFC 2616 à letra. 
+# Se você puder tirar proveito do conhecimento não HTTP para adivinhar melhor a codificação, 
+# defina r.encoding apropriadamente antes de acessar esta propriedade.
+print(resposta.text)
+
+# Local final do URL da resposta.
+print(resposta.url)
+
+# Libera a conexão de volta ao pool. Depois que esse método for chamado, 
+# o objeto bruto subjacente não deverá ser acessado novamente.
+# Nota: Normalmente, não precisa ser chamado explicitamente.
+resposta.close()
+
+# Gera HTTPError armazenado, se um ocorreu.
+resposta.raise_for_status()
