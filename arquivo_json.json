@@ -1,0 +1,12 @@
+{
+  "tipo":"notebook",
+  "SO":{
+    "SO":true,
+    "windows":10,
+    "linux":"ubuntu"
+  },
+  "HD":"1TB",
+  "ram":"8GB",
+  "cor":"preto",
+  "CD-DVD":null
+}
