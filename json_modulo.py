@@ -9,34 +9,34 @@
 #   obj, -> ojeto em formato de json ou dicionario.
 #   fp, -> arquivo de escrita ou destino
 #   *, -> outros destinos
-#   skipkeys=False, -> Se skipkeys for true (padrão: False), as teclas dict que não são de um tipo básico 
-#     (str, int, float, bool, None) serão ignoradas em vez de gerar um TypeError.
-#   ensure_ascii=True, -> Se sure_ascii for true (o padrão), é garantido que a saída tenha todos os 
-#     caracteres não ASCII de entrada escapados. Se sure_ascii for false, 
-#     esses caracteres serão exibidos como estão.
-#   check_circular=True, -> Se check_circular for false (padrão: True), a verificação de referência 
-#     circular para tipos de contêiner será ignorada e uma referência circular resultará 
+#   skipkeys=False, -> Se skipkeys for true (padrao: False), as teclas dict que nao sao de um tipo basico 
+#     (str, int, float, bool, None) serao ignoradas em vez de gerar um TypeError.
+#   ensure_ascii=True, -> Se sure_ascii for true (o padrao), e garantido que a saída tenha todos os 
+#     caracteres nao ASCII de entrada escapados. Se sure_ascii for false, 
+#     esses caracteres serao exibidos como estao.
+#   check_circular=True, -> Se check_circular for false (padrao: True), a verificacao de referencia 
+#     circular para tipos de conteiner sera ignorada e uma referencia circular resultara 
 #     em um OverflowError (ou pior).
-#   allow_nan=True, -> Se allow_nan for false (padrão: True), será um ValueError serializar valores 
-#     flutuantes fora do intervalo (nan, inf, -inf) em estrita conformidade com a especificação JSON. 
-#     Se allow_nan for true, seus equivalentes JavaScript (NaN, Infinity, -Infinity) serão usados.
+#   allow_nan=True, -> Se allow_nan for false (padrao: True), sera um ValueError serializar valores 
+#     flutuantes fora do intervalo (nan, inf, -inf) em estrita conformidade com a especificacao JSON. 
+#     Se allow_nan for true, seus equivalentes JavaScript (NaN, Infinity, -Infinity) serao usados.
 #   cls=None, -> 
-#   indent=None, -> Se o recuo for um número inteiro ou sequência não negativa, 
-#     os elementos da matriz JSON e os membros do objeto serão impressos com esse nível de recuo. 
-#     Um nível de recuo de 0, negativo ou "" inserirá apenas novas linhas. 
-#     Nenhum (o padrão) seleciona a representação mais compacta. 
-#     O uso de um recuo inteiro positivo indenta muitos espaços por nível. 
-#     Se recuar for uma sequência (como "\ t"), essa sequência será usada para recuar cada nível.
+#   indent=None, -> Se o recuo for um numero inteiro ou sequencia nao negativa, 
+#     os elementos da matriz JSON e os membros do objeto serao impressos com esse nível de recuo. 
+#     Um nível de recuo de 0, negativo ou "" inserira apenas novas linhas. 
+#     Nenhum (o padrao) seleciona a representacao mais compacta. 
+#     O uso de um recuo inteiro positivo indenta muitos espacos por nível. 
+#     Se recuar for uma sequencia (como "\ t"), essa sequencia sera usada para recuar cada nível.
 #   separators=None, ->  Se especificado, os separadores devem ser uma tupla 
-#     (item_separator, key_separator). O padrão é (',', ':') se o indent for None e (',', ':') 
-#     caso contrário. Para obter a representação JSON mais compacta, você deve especificar (',', ':') 
-#     para eliminar o espaço em branco.
-#   default=None, -> Se especificado, o padrão deve ser uma função que é chamada para objetos que não 
-#     poderiam ser serializados. Ele deve retornar uma versão codificada em JSON do objeto ou gerar
-#     um TypeError. Se não especificado, TypeError é gerado.
-#   sort_keys=False, -> Se sort_keys for true (padrão: False), a saída dos dicionários será classificada por chave.
-#     Para usar uma subclasse JSONEncoder customizada (por exemplo, uma que substitui o método default () para serializar tipos adicionais),
-#     especifique-a com o cls kwarg; caso contrário, JSONEncoder é usado.
+#     (item_separator, key_separator). O padrao e (',', ':') se o indent for None e (',', ':') 
+#     caso contrario. Para obter a representacao JSON mais compacta, voce deve especificar (',', ':') 
+#     para eliminar o espaco em branco.
+#   default=None, -> Se especificado, o padrao deve ser uma funcao que e chamada para objetos que nao 
+#     poderiam ser serializados. Ele deve retornar uma versao codificada em JSON do objeto ou gerar
+#     um TypeError. Se nao especificado, TypeError e gerado.
+#   sort_keys=False, -> Se sort_keys for true (padrao: False), a saída dos dicionarios sera classificada por chave.
+#     Para usar uma subclasse JSONEncoder customizada (por exemplo, uma que substitui o metodo default () para serializar tipos adicionais),
+#     especifique-a com o cls kwarg; caso contrario, JSONEncoder e usado.
 #   **kw ->
 # )
 
@@ -60,26 +60,26 @@ arquivo_json.close()
 #   fp, -> Arquivo ou origem do objeto JSON
 #   *, 
 #   cls=None, ->
-#   object_hook=None, -> object_hook é uma função opcional que será chamada com o resultado de qualquer 
-#     objeto literal decodificado (um ditado). O valor de retorno de object_hook será usado em vez do 
+#   object_hook=None, -> object_hook e uma funcao opcional que sera chamada com o resultado de qualquer 
+#     objeto literal decodificado (um ditado). O valor de retorno de object_hook sera usado em vez do 
 #     dict. Esse recurso pode ser usado para implementar decodificadores personalizados (por exemplo, 
 #     dicas de classe JSON-RPC).
-#   parse_float=None, -> parse_float, se especificado, será chamado com a sequência de todos os flutuadores
-#      JSON a serem decodificados. Por padrão, isso é equivalente a float (num_str). 
+#   parse_float=None, -> parse_float, se especificado, sera chamado com a sequencia de todos os flutuadores
+#      JSON a serem decodificados. Por padrao, isso e equivalente a float (num_str). 
 #      Isso pode ser usado para usar outro tipo de dados ou analisador para flutuadores JSON 
 #      (por exemplo, decimal.Decimal).
-#   parse_int=None, -> parse_int, se especificado, será chamado com a cadeia de caracteres de cada 
-#     JSON int a ser decodificado. Por padrão, isso é equivalente a int (num_str). 
-#     Isso pode ser usado para usar outro tipo de dados ou analisador para números inteiros JSON 
+#   parse_int=None, -> parse_int, se especificado, sera chamado com a cadeia de caracteres de cada 
+#     JSON int a ser decodificado. Por padrao, isso e equivalente a int (num_str). 
+#     Isso pode ser usado para usar outro tipo de dados ou analisador para numeros inteiros JSON 
 #     (por exemplo, float).
-#   parse_constant=None, -> parse_constant, se especificado, será chamado com uma das seguintes 
+#   parse_constant=None, -> parse_constant, se especificado, sera chamado com uma das seguintes 
 #     cadeias de caracteres: '-Infinity', 'Infinity', 'NaN'. Isso pode ser usado para gerar uma 
-#     exceção se forem encontrados números JSON inválidos.
-#   object_pairs_hook=None, -> object_pairs_hook é uma função opcional que será chamada com o 
+#     excecao se forem encontrados numeros JSON invalidos.
+#   object_pairs_hook=None, -> object_pairs_hook e uma funcao opcional que sera chamada com o 
 #     resultado de qualquer objeto literal decodificado com uma lista ordenada de pares. 
-#     O valor de retorno de object_pairs_hook será usado em vez do dict. 
+#     O valor de retorno de object_pairs_hook sera usado em vez do dict. 
 #     Esse recurso pode ser usado para implementar decodificadores personalizados. 
-#     Se object_hook também estiver definido, o object_pairs_hook terá prioridade.
+#     Se object_hook tambem estiver definido, o object_pairs_hook tera prioridade.
 #   **kw ->
 # )
 
