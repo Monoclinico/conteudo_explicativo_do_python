@@ -5,6 +5,11 @@ from fractions import Fraction
 
 
 class TesteSoma(unittest.TestCase):
+  @staticmethod
+  def imprime_informacao():
+    print()
+    print(" Funcoes de Testes ".center(70,"="))
+
   def test_lista_interios(self):
     dados = [2,4,7]
     resultado = soma(dados)
@@ -16,10 +21,11 @@ class TesteSoma(unittest.TestCase):
     self.assertEqual(resultado, 1)
 
   def test_tipo_diferente(self):
-    dados = "ERRRO"
-    with self.assertRaises(TypeError):
-      resultado = soma(dados)
-      del resultado
+    dados = ["ERRRO",None,{22,3},True,lambda x: x(3)]
+    for d in dados:
+      with self.assertRaises(AssertionError):
+          soma(d)
 
 if __name__ == "__main__":
-  unittest.main()
+  TesteSoma.imprime_informacao()
+  unittest.main(verbosity=2)
