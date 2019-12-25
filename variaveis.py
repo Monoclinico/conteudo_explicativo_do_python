@@ -117,4 +117,19 @@ print(some_number) #8
 print(some_list) # [1]
 print(soma_name) # Ellipsis
 
+# ================ DESCOMPACTACAO, ENCURTAMENTOS E TRUQUES ==============================================
 
+# atribuicao para multipla variaveis em uma linha 
+a,b,c = 3,4,5
+#ou
+a,b,c = [3,4,5]
+
+# para trocar os valor de duas variaveis sem ter que criar uma terceira:
+x,y = 1,4
+y,x = x,y # inverte-se a ordem
+
+# concatenar listas
+lista1 = [1,2,3]
+lista2 = [4,5,6]
+lista3 = [*lista1,*lista2]
+print(lista3)
