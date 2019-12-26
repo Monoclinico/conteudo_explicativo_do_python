@@ -123,6 +123,9 @@ print(soma_name) # Ellipsis
 a,b,c = 3,4,5
 #ou
 a,b,c = [3,4,5]
+#ou
+d = {"num":[3,4,5]}
+a,b,c = d['num']
 
 # para trocar os valor de duas variaveis sem ter que criar uma terceira:
 x,y = 1,4
@@ -133,3 +136,12 @@ lista1 = [1,2,3]
 lista2 = [4,5,6]
 lista3 = [*lista1,*lista2]
 print(lista3)
+
+# inverter dois valores
+v1, v2 = 310,720
+
+v2 = v1 ^ v2
+v1 = v2 ^ v1
+v2 = v1 ^ v2
+
+print(v1, v2)
