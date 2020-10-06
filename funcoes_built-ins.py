@@ -103,6 +103,7 @@ enumerate_comidas = enumerate(comidas)
 print(list(enumerate_comidas)) #[(0, 'bread'), (1, 'milk'), (2, 'butter')]
 
 #O método eval () analisa a expressão passada para este método e executa a expressão (código) do python dentro do programa.
+#É possível explicitamente instruir a linguagem para avaliar uma string como uma expressãoPython.
 #eval (expressão, globals = None, locals = None)
 # expressão - essa string é analisada e avaliada como uma expressão Python
 # globals (opcional) - um dicionário
