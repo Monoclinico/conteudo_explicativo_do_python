@@ -1,3 +1,9 @@
+# Os nomes atribuídos durante a execução de uma chamada de função são considerados nomes locais, com relação a uma chamada de função. 
+# Os nomes locais a uma função existem apenas no namespace associado à chamada de função. Eles:
+# -São visíveis apenas ao código dentro da função.
+# -Não interferem com os nomes definidos fora da função, mesmo que sejam os mesmos.
+# -Existem apenas durante a execução da função; eles não existem antes que a função inicie a execução nem depois que a função termina sua execução.
+
 #ESCOPOS
 
 #ESCOPO LOCAL
