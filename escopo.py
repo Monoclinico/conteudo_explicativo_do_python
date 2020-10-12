@@ -4,6 +4,13 @@
 # -Não interferem com os nomes definidos fora da função, mesmo que sejam os mesmos.
 # -Existem apenas durante a execução da função; eles não existem antes que a função inicie a execução nem depois que a função termina sua execução.
 
+
+# Como o interpretador Python decide se avaliará um nome como um nome local ou global?
+# Sempre que o interpretador Python precisa avaliar um nome (de uma variável, função etc.), ele procura a definição de nome nesta ordem:
+# -Primeiro, o namespace da chamada da função delimitadora.
+# -Depois, o namespace global (módulo).
+# -Por fim, o namespace do módulo builtins.
+
 #ESCOPOS
 
 #ESCOPO LOCAL
