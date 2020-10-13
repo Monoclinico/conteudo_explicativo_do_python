@@ -33,3 +33,14 @@ print(choice([5,6,4]))
 #importar utilizando a funcao __import__()
 tempo = __import__('time', globals(), locals(), [])
 tempo.sleep(5)
+
+# Uma aplicação de computador é um programa que normalmente é dividido em vários arquivos (ou seja, módulos). 
+# Em cada programa Python, um dos módulos é especial: ele contém o “programa principal”, significando o código que inicia a aplicação.
+# Esse módulo é denominado módulo de alto nível. 
+# Os módulos restantes são basicamente módulos de “biblioteca”, importados pelo módulo de alto nível e que contêm funções e classes usadas pela aplicação.
+
+# Já vimos que, quando um módulo é importado, o interpretador Python cria algumas variáveis de “manutenção” no namespace do módulo. Uma destas é a variável _ _name_ _. Python definirá seu valor desta forma:
+
+# -Se o módulo estiver sendo executado como um módulo de alto nível, o atributo _ _name_ _ é definido como a string _ _main_ _.
+
+# -Se o arquivo estiver sendo importado por outro módulo, seja ele de alto nível ou não, o atributo _ _name_ _ é definido como o nome do módulo.
