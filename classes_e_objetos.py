@@ -2,6 +2,13 @@
 # O conceito da programacao orientada a objetos esta focado na criacao de codigo que possa ser reusado.
 # Esse conceito e tambem conhecido como DRY (Nao repete o mesmo)
 
+# O relacionamento entre os namespaces a, b e Ponto é ilustrado na Figura 8.5. 
+# É importante entender que os nomes de método setx, sety, get e move são definidos no namespace Ponto, e não no namespace a ou b. 
+# Assim, o interpretador Python usa esse procedimento quando avalia a expressão a.setx: 1. 
+# Primeiro, ele tenta encontrar o nome setx no objeto (namespace) a. 2. 
+# Se o nome setx não existir no namespace a, então ele tenta encontrar setx no name-space Ponto (onde o encontrará).
+
+
 # ========================== CLASSE ======================
 # Objeto e simplesmente uma colecao de dados (variaveis) e metodos (funcoes) que atuam sobre esses dados. 
 # E classe e um modelo para o objeto.
