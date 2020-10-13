@@ -1,3 +1,8 @@
+# Quando o interpretador Python executa uma instrução import, ele:
+# 1. Procura o arquivo correspondente ao módulo.
+# 2. Executa o código do módulo para criar os objetos definidos no módulo.
+# 3. Cria um namespace no qual os nomes desses objetos residirão
+
 #importar todo o modulo
 #lento
 import platform
