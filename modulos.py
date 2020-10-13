@@ -3,6 +3,12 @@
 # 2. Executa o código do módulo para criar os objetos definidos no módulo.
 # 3. Cria um namespace no qual os nomes desses objetos residirão
 
+#Python utiliza um caminho de busca para localizar o módulo. 
+# O caminho de busca é simplesmente uma lista de diretórios (ou pastas) onde o Python procurará os módulos. 
+# O nome da variável path definido no módulo da Biblioteca Padrão sys refere-se a essa lista.
+#import sys
+#print(sys.path)
+
 #importar todo o modulo
 #lento
 import platform
